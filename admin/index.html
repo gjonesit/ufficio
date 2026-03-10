@@ -6,9 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Netlify Identity (necessario per il login) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> 
   </head>
   <body>
+
+
+
+
+
+    <script>
+// admin.js
+import CMS from "netlify-cms-app";
+
+CMS.registerPreviewTemplate("blog", ({ entry }) => {
+  const data = entry.toJS().data;
+  return (
+    <div>
+      <header style={{background:"#111827", color:"#fff", padding:"1rem"}}>
+        <h1>Admin Personalizzato</h1>
+      </header>
+      <h2>{data.title}</h2>
+      <div>{data.body}</div>
+    </div>
+  );
+});
+    </script>      
     <!-- Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 

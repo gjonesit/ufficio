@@ -1,0 +1,352 @@
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyD8Na77eHSTpzzVmmJenjDJNZyIqu4GtZU",
+    authDomain: "gabrieljones-ec8a4.firebaseapp.com",
+    projectId: "gabrieljones-ec8a4",
+    storageBucket: "gabrieljones-ec8a4.firebasestorage.app",
+    messagingSenderId: "861983070652",
+    appId: "1:861983070652:web:cbc75c3494923f747ef3b9",
+    measurementId: "G-8EFNPJP6GB"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+    const userArea = document.getElementById("user-area");
+
+    // LOGIN
+    document.getElementById("login-btn").addEventListener("click", function() {
+      const email = document.getElementById("accedi-mail").value;
+      const password = document.getElementById("accedi-pwd").value;
+      const errorBox = document.getElementById("login-error");
+
+      errorBox.textContent = "";
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(() => {
+          location.reload();
+        })
+        .catch((error) => {
+          errorBox.textContent = error.message;
+        });
+    });
+
+    // STATO UTENTE
+    auth.onAuthStateChanged(function(user) {
+      if (user) {
+        userArea.innerHTML = `
+          <a href="/area/" class="btn btn-sm">
+            <i class="fa fa-user-circle"></i> Ciao, <b>Gabriel</b>
+          </a>
+        `;
+      }
+    });
+
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+<script src="{{ site.url }}/asset/pvw2/lib/js/bootstrap-italia.bundle.min.js"></script>
+<script src="{{ site.url }}/asset/auth/lib/js/jquery-AuthApi2.js"></script>
+<script src="{{ site.url }}/asset/commons/lib/jsx/jQuery/plugins/realperson/jquery.plugin.min.js"></script>
+<script src="{{ site.url }}/asset/pvw2/lib/js/realperson_custom.js"></script>
+<script src="{{ site.url }}/asset/pvw2/lib/js/functions.js"></script>
+<script src="{{ site.url }}/asset/pvw2/lib/js/common.js"></script>
+<script>
+$(document).ready(function(){
+avviaCaptcha('rigenera codice');
+
+$('[data-tooltip="tooltip"]').tooltip();
+
+$('.select-submit').change(function(){
+$('.form-submit').submit();
+});
+
+$('#accedi-mail').keypress(function(e) {
+if(e.which == 13) {
+doLogin();
+}
+});
+
+$('#accedi-pwd').keypress(function(e) {
+if(e.which == 13) {
+doLogin();
+}
+});
+
+$('.pwd-reset').click(function(){
+doReset();
+});
+
+$('.btn-accedi').click(function(){
+doLogin();
+});
+
+$('.btn-logout').click(function(){
+doLogout();
+});
+
+/*if ($('.avatar-profile').length>0)
+{
+inviaDatiASync('/tools/app/default/get_avatar.php', null, function(json){
+if(json)
+{
+var resp = JSON.parse(json);
+if (resp.foto!=undefined && resp.foto!='')
+{
+var src = "/sps/app/default/cache-img.php?sz=100&ori="+resp.foto;
+$('.avatar-profile').attr('src', src);
+}
+}
+});
+}*/
+
+if ($('.language_select').length>0)
+{
+$('.language_select').click(function(){
+var data = {
+'act'       :   'changeLang',
+'lang'      :   $(this).attr('data-lang')
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data, function(){
+location.reload();
+});
+});
+}
+
+$('.cookiebar-ok').click(function(){
+var data = {
+'act'       :   'cookieConsent',
+'cookie'    :   'all'
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data, function(){
+location.reload();
+});
+});
+
+$('.cookiebar-ko').click(function(){
+var data = {
+'act'       :   'cookieConsent',
+'cookie'    :   'none'
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data, function(){
+location.reload();
+});
+});
+
+$('.btn-cookie-save').click(function(){
+var cookie_list=[];
+$('#cookie_form input[type="checkbox"]').each(function(){
+if ($(this).is(':checked'))
+{
+cookie_list.push($(this).attr('data-id'));
+}
+});
+var data = {
+'act'       :   'cookieConsent',
+'cookie'    :   cookie_list.join(',')
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data, function(){
+location.reload();
+});
+});
+
+if ($('.menu-laterale').length>0)
+{
+if ($('.menu-laterale a.current').length>0)
+{
+$('.menu-laterale a.current').parents(".collapse").not('.menu-laterale').collapse("toggle");
+if ($('.menu-laterale a.current').find('svg').length>0)
+{
+$('.menu-laterale a.current').siblings('ul').collapse("toggle");
+}
+$('.menu-laterale a.current').parents('li:not(.base-parent)').addClass('show');
+}
+
+if ($('.toggle-collapse').length>0)
+{
+$('.toggle-collapse').click(function(e){
+e.preventDefault();
+});
+}
+}
+
+if ($('.rssfeed').length>0)
+{
+$('.rssfeed').each(function(){
+var attuale=$(this);
+getRssFeed(attuale.attr('data-url'), function(result){
+attuale.html(result);
+});
+});
+}
+});
+
+window.onscroll = function (){
+navbarSticky();
+};
+
+function navbarSticky()
+{
+var nav = document.getElementById('navigation-bar');
+var sticky = nav.offsetTop+50;
+
+if (window.pageYOffset >= sticky) {
+nav.classList.add('sticky');
+} else {
+nav.classList.remove('sticky');
+}
+}
+</script>
+
+
+<script src="{{ site.url }}/asset/pvw2/lib/js/calendarorganizer.js"></script>
+<script src="{{ site.url }}/asset/pvw2/lib/js/jquery.scrollbox.js"></script>
+<script src="{{ site.url }}/asset/pvw2/lib/js/schoolplanner.js"></script>
+<script src="{{ site.url }}/asset/pvw2/lib/js/aos.js"></script>
+<script src="{{ site.url }}/asset/pvw2/lib/js/vendor/splide.min.js"></script>
+<script>
+$(document).ready(function(){
+AOS.init({
+delay: 50,
+duration: 2000
+});
+
+if ($('.sp-container').length>0)
+{
+$('[data-toggle="tooltip"]').tooltip();
+}
+
+if ($('.box-calendario').length>0)
+{
+$('.box-calendario').each(function(){
+var attuale = $(this);
+
+var date = new Date();
+var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+var data = {
+'act': 'calendar-feed',
+'data_start': firstDay.toISOString().slice(0, 10),
+'data_stop': lastDay.toISOString().slice(0, 10)
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data, function(result){
+var calendar = new Calendar(
+attuale.attr('id'),
+"small",
+[
+1,
+3
+],
+[
+"#FFFFFF",
+"#FFFFFF",
+"#3941A0",
+"#3941A0"
+],
+{
+indicator: true,
+indicator_type: 1,
+indicator_pos: "bottom",
+lang: $('html').attr('lang')
+}
+);
+
+var organizer = new Organizer(
+"box-eventi"+attuale.attr('data-id'),
+calendar,
+result
+);
+
+organizer.onMonthChange = function(callback){
+var date = organizer.calendar.date;
+var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+var data2 = {
+'act': 'calendar-feed',
+'data_start': firstDay.toISOString().slice(0, 10),
+'data_stop': lastDay.toISOString().slice(0, 10)
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data2, function(result2){
+organizer.data = result2;
+callback();
+});
+};
+});
+});
+}
+
+if ($('.latest-news-feed').length>0)
+{
+$('.latest-news-feed').each(function(){
+var attuale = $(this);
+if (attuale.attr('data-tipo')=='news')
+{
+var data={
+'act'           :   'getUltimeNews',
+'colonne'       :   attuale.find('.vc_list').attr('data-colonne'),
+'max_elementi'  :   attuale.find('.vc_list').attr('data-max_elementi'),
+'no_immagini'   :   attuale.find('.vc_list').attr('data-no_immagini'),
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data, function(result){
+attuale.find('.vc_list').html(result);
+bindNews(attuale);
+});
+}
+else
+{
+bindNews(attuale);
+}
+});
+}
+});
+
+function bindNews(attuale)
+{
+attuale.find(".verticalCarousel").scrollbox({
+switchAmount: 4,
+});
+
+attuale.find('.vc_goUp').click(function(){
+attuale.find('.verticalCarousel').trigger('backward');
+});
+attuale.find('.vc_goDown').click(function(){
+attuale.find('.verticalCarousel').trigger('forward');
+});
+}
+
+$('body').on('click', 'a.schoolplanner_event', function() {
+var data={
+'act'           :   'fullcalendar-event',
+'id'            :   $(this).attr('data-id'),
+'tipo'          :   $(this).attr('data-tipo'),
+'modal'         :   2
+};
+ajaxRequest(checkSeoUrl()+'tools.php', data, function(risultato){
+$('#sp-event-modal .modal-body').html(risultato);
+$('#sp-event-modal').modal('show');
+});
+return false;
+});
+</script>
+
+
+<script>
+if (inIframe() && 0)
+{
+$('.cookiebar-container').remove();
+}
+</script>

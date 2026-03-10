@@ -1,0 +1,4 @@
+---
+layout: protected
+---
+<div class="container py-5"> <h1 class="text-center mb-4">{{ page.title }}</h1> <div class="row"> {% for link in page.links %} <div class="col-md-4 mb-4"> <div class="card"> <!--- <img src="https://via.placeholder.com/150" class="card-img-top" alt="Immagine card"> --> <div class="card-body"> <h5 class="card-title">{{ link.name }}</h5> <a href="{{ link.url }}" class="btn btn-primary" target="_blank">Vai al link</a> </div> </div> </div> {% endfor %} </div> </div>

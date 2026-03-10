@@ -1,0 +1,162 @@
+.container-fluid-homepage {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+ .row-homepage {
+	margin-left:-10px;
+ 	margin-right:-10px;
+ }
+ 
+ .col-homepage {
+	padding-left:10px;
+ 	padding-right:10px;
+ }
+ .container {
+	max-width:100%;
+ 	padding:0px;
+ }
+ 
+.col-homepage-left {
+	padding-left: 2.5px;		
+}
+
+.col-homepage-right {
+	padding-right: 2.5px;	
+}
+
+nav a:link, 
+nav a:visited,
+nav a:active,
+nav a:hover {
+	text-decoration:none !important;
+	
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6  {
+	font-family: inherit;	
+}
+
+.cms-table-footer {
+	height: auto !important;
+}
+
+.cms-table-footer {
+	height: auto !important;
+}
+
+.input-xs {
+    border-radius: 0px;
+    font-size: 12px !important;
+    height: 25px;
+    line-height: 1;
+    padding: 5px 5px;
+}
+
+select.input-xs {
+    padding: 2px 0 0;
+}
+
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+	color: #FFFFFF !important;
+}
+
+/* MULTISELECT PLUGIN */
+.multiselect {
+	text-align: left;
+} 
+
+.multiselect-container { 
+	width: 100%;
+}
+
+.multiselect-container > li > a { 
+    white-space: normal;
+}
+
+.help-block-form-element {
+    color: #737373;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+/* JQUERY VALIDATE */
+label.error {
+	font-weight: normal;
+	color: #FF0000;
+	font-style: italic;
+}
+input.error,
+select.error,
+textarea.error {
+	border: 1px solid #FF0000 !important;
+}
+
+/* BUTTON */
+.btn-gray {
+    background-color: #e6e6e6;
+    border-color: #ccc;
+    color: #333 !important;
+}
+.btn-gray:hover {
+    background-color: #d5d5d5;
+    border-color: #adadad;
+    color: #333 !important;
+}
+
+.btn-transparent {
+    background-color: #FFF;
+    border-color: #FFF;
+    color: #333 !important;
+    opacity: 0.6;
+}
+.btn-transparent:hover {    
+    opacity: 0.8;
+}
+
+/* BOOTSTRAP DETAIL */
+.detail-label {	
+	font-weight: normal;
+	margin-bottom: 2px;
+}
+
+.detail-value {
+	padding: 4px;
+	margin-bottom: 2px;
+}
+
+.detail-row {
+	margin: 0px;
+}
+
+/* BOOTSTRAP BREAK */
+.break-all {
+	word-break: break-all;
+}
+
+/* BOOTSTRAP PANEL */
+.panel-heading {
+	font-weight: bold;
+}
+
+/* BOOTSTRAP WELL */
+.well {
+	padding-bottom: 0px;
+}
+
+/* BOOTSTRAP TABLE */
+caption {
+	padding: 0px;
+	margin: 0px !important;
+}
+
+
+/* Fix dialog after bootstrap */
+.ui-widget-header button.ui-dialog-titlebar-close .ui-icon-closethick {
+    background-image: url(../../../km/css-static/smoothness-1.12/images/ui-icons_222222_256x240.png) !important;
+}

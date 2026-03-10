@@ -1,0 +1,89 @@
+#fullcalendar .fc-button
+{
+    background-color: #F8F8F8;
+    color: #000;
+    margin-right: 10px;
+    border-radius: 23px;
+    border: 0px;
+    font-size: 16px;
+    padding: 12px 24px;
+}
+
+#fullcalendar .fc-button:last-child
+{
+    margin-right: 0px;
+}
+
+#fullcalendar .fc-prev-button, #fullcalendar .fc-next-button
+{
+    padding: 12px;
+}
+
+#fullcalendar .fc-col-header-cell-cushion, #fullcalendar .fc-list-day-side-text, #fullcalendar .fc-list-day-text
+{
+    color: #000;
+}
+
+#fullcalendar .fc-daygrid-day-top
+{
+    display: block;
+    text-align: center;
+}
+
+#fullcalendar .fc-daygrid-day.fc-day-today
+{
+    background-color: var(--fc-today-bg-color, rgba(255, 255, 255, 0.15));
+}
+
+#fullcalendar .fc-daygrid-day-top
+{
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+#fullcalendar .fc-daygrid-day-number
+{
+    display: inline-block;
+    border-radius: 18px;
+    width: 36px;
+    height: 36px;
+    color: #000;
+}
+
+#fullcalendar .fc-button-active
+{
+    font-weight: bold;
+}
+
+#fullcalendar .fc-day-today .fc-daygrid-day-number
+{
+    background-color: #0066cc;
+    color: #fff;
+}
+
+#fullcalendar .fc-daygrid-event, #fullcalendar .fc-timegrid-event {
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+
+.sp-loading
+{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+    text-align: center;
+}
+
+.sp-loading .progress-spinner
+{
+    position: absolute;
+    top: 50%;
+}

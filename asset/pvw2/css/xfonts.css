@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'OpenSans';
+  font-weight: normal;
+  src: url(../fonts/OpenSans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  font-weight: normal;
+  src: url(../fonts/Montserrat/Montserrat-Light.otf);
+}
+
+@font-face {
+  font-family: 'Montserrat-UltraLight';
+  font-weight: normal;
+  src: url(../fonts/Montserrat/Montserrat-UltraLight.otf);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-weight: normal;
+  src: url(../fonts/Montserrat/Montserrat-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Montserrat-ExtraBold';
+  font-weight: normal;
+  src: url(../fonts/Montserrat/Montserrat-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Titillium';
+  font-weight: normal;
+  src: url(../fonts/Titillium_Web/TitilliumWeb-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'TitilliumWeb-Bold';
+  font-weight: normal;
+  src: url(../fonts/Titillium_Web/TitilliumWeb-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Titillium Web';
+  font-weight: normal;
+  src: url(../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-regular.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: normal;
+  src: url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  font-weight: normal;
+  src: url(../fonts/Roboto_Mono/RobotoMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  font-weight: normal;
+  src: url(../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-regular.ttf);
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-weight: normal;
+  src: url(../fonts/Lora/lora-v20-latin-ext_latin-regular.ttf);
+}
+
+@font-face {
+  font-family: 'Raleway';
+  font-weight: normal;
+  src: url(../fonts/Raleway/Raleway-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  font-weight: normal;
+  src: url(../fonts/SourceSansPro/SourceSansPro-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: normal;
+  src: url(../fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  font-weight: normal;
+  src: url(../fonts/Helvetica/Helvetica.ttf);
+}
+
+@font-face {
+  font-family: 'Futura';
+  font-weight: normal;
+  src: url(../fonts/Futura/FuturaStd-Book.otf);
+}
+
+@font-face {
+  font-family: 'Bebas';
+  font-weight: normal;
+  src: url(../fonts/Bebas/BebasNeue-Regular.otf);
+}
+
+@font-face {
+  font-family: 'Bodoni';
+  font-weight: normal;
+  src: url(../fonts/Bodoni/Bodoni.ttf);
+}
+
+@font-face {
+  font-family: 'MuseoSlab';
+  font-weight: normal;
+  src: url(../fonts/Museo_Slab/MuseoSlab-300.otf);
+}
+
+@font-face {
+  font-family: 'Calibri';
+  font-weight: normal;
+  src: url(../fonts/Calibri/calibri.ttf);
+}
+
+@font-face {
+  font-family: 'Garamond';
+  font-weight: normal;
+  src: url(../fonts/Garamond/Garamond.ttf);
+}
+
+@font-face {
+  font-family: 'Pilcrowsoft';
+  font-weight: normal;
+  src: url(../fonts/Pilcrowsoft/PilcrowSoft-Semibold.otf);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 200;
+  fotn-style: normal;
+  src: url(../fonts/Inter/Inter-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 400;
+  fotn-style: normal;
+  src: url(../fonts/Inter/Inter-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 500;
+  fotn-style: normal;
+  src: url(../fonts/Inter/Inter-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 600;
+  fotn-style: normal;
+  src: url(../fonts/Inter/Inter-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 700;
+  fotn-style: normal;
+  src: url(../fonts/Inter/Inter-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 800;
+  fotn-style: normal;
+  src: url(../fonts/Inter/Inter-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: 'Allerta Stancil';
+  font-weight: normal;
+  src: url(../fonts/Allerta_Stencil/AllertaStencil-Regular.ttf);
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  {% include stili.html %}
+  {% include script.html %}
+  <title>{{ page.title }}</title>
+  </head>
+  <body>
+  {% include header.html %}
+
+  {% include hero.html %}
+  <br>
+<div id="main" role="main" class="container">
+{{ content }}    
+</div>
+  {% include footer.html %}
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<header id="mainheader" class="it-header-wrapper it-header-sticky headerpnrr">
+   <div class="barrafvg it-header-slim-wrapper">
+      <div class="container it-header-slim-wrapper-content p-0">
+         <div>
+            <a href="https://18f.it" aria-label="vai al sito 18F" target="_blank" class="d-none d-lg-block">SITO GESTITO DA GABRIEL JONES</a>
+            <div class="fvg-mobile"><a href="https://18f.it" aria-label="vai al sito 18F" target="_blank"><b>SITO GESTITO DA GABRIEL JONES</b></a></div>
+            <!----><!----><!---->
+         </div>
+         <div class="it-header-slim-right-zone">
+            <div class="nav-item d-flex">
+               <!----><!---->
+               <app-header-profile>
+                  <a class="btn btn-regione btn-icon btn-full" hrer="/hh/areapersonale/">
+                     <span class="rounded-icon">
+                        <svg role="presentation" aria-label="utente" class="icon icon-primary">
+                           <use xlink:href="{{ site.url }}/sprites.svg#it-user"></use>
+                        </svg>
+                     </span>
+                     <span class="d-none d-lg-block">Accedi all'area personale</span><!----><!----><!---->
+                  </a>
+                  <!----><!----><!----><!----><!---->
+               </app-header-profile>
+               <!---->
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="it-nav-wrapper">
+
+      
+
+
+<div class="it-header-center-wrapper">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="it-header-center-content-wrapper">
+<div class="it-brand-wrapper">
+<a href="/" title="Torna alla homepage">
+
+<div>
+<span class="media">
+<img class="align-self-center logo_scuola" src="https://gabrielmatteojones.github.io/ufficio.gabrieljones.it/header.png" alt="Liceo Leopardi - Majorana">
+
+</span>
+</div>
+
+
+</a>
+</div>
+<div class="it-right-zone">
+<div class="it-search-wrapper">
+<div class="hidden-xs search" style="float:right;">
+<div class="pull-right">
+<span class="input-group-btn">
+<button class="btn-search search-link rounded-icon" type="button" data-toggle="modal" data-target="#searchModal" aria-label="Apri ricerca" data-element="search-modal-button">
+<svg class="icon">
+<use xlink:href="/pvw2/img/sprite.svg#it-search"></use>
+</svg>
+</button>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+      
+
+
+      <div class="it-header-navbar-wrapper theme-light-desk">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <!--start nav-->
+        <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
+          <button class="custom-navbar-toggler" type="button" aria-controls="nav3" aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav3">
+            <svg class="icon">
+              <use href="{{ site.url}}/sprites.svg#it-burger"></use>
+            </svg>
+          </button>
+          <div class="navbar-collapsable" id="nav3" tabindex="-1">
+            <div class="close-div">
+              <button class="btn close-menu" type="button">
+                <span class="visually-hidden">Nascondi la navigazione</span>
+                <svg class="icon"><use href="{{ site.url}}/sprites.svg#it-close-big"></use></svg>
+              </button>
+            </div>
+            <div class="menu-wrapper">
+              <ul class="navbar-nav">
+
+
+
+
+
+  {% for menu in site.data.nav %}
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="{{ menu.id }}">
+        <span>{{ menu.title }}</span>
+        <svg class="icon icon-xs"><use href="{{ site.url }}/sprites.svg#it-expand"></use></svg>
+      </a>
+      <div class="dropdown-menu" role="region" aria-labelledby="{{ menu.id }}">
+        <div class="link-list-wrapper">
+          <ul class="link-list container">
+            {% for link in menu.links %}
+              {% if link.divider %}
+                <li><span class="divider"></span></li>
+              {% else %}
+                <li><a class="dropdown-item list-item" href="{{ link.url }}"><span>{{ link.text }}</span></a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+   </div>
+</header>

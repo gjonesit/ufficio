@@ -1,12 +1,12 @@
 backend:
   name: git-gateway
-  branch: master   # cambia se usi master o altro branch
+  branch: master
 
 media_folder: "images"
 public_folder: "/images"
 
 site_url: ""
-logo_url: "/images/logo.png" # opzionale
+logo_url: "/polodelleeta.png"
 
 collections:
   - name: "posts"
@@ -21,3 +21,77 @@ collections:
       - { label: "Titolo", name: "title", widget: "string" }
       - { label: "Data", name: "date", widget: "datetime" }
       - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pagine"
+    label_singular: "Pagina"
+    folder: "it"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "page" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "Esempio: /nome-pagina/" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  - name: "fatture"
+    label: "Fatturazioni"
+    files:
+      - label: "Entrate"
+        name: "entrate"
+        file: "_data/fatture.yml"
+        fields:
+          - label: "Fatture"
+            name: "fatture"
+            widget: "list"
+            fields:
+              - { label: "Titolo", name: "titolo", widget: "string" }
+              - { label: "Cliente", name: "cliente", widget: "string" }
+              - { label: "Data", name: "data", widget: "date" }
+              - { label: "Importo", name: "importo", widget: "number" }
+              - { label: "Tassato", name: "tassato", widget: "boolean" }
+              - { label: "Note", name: "note", widget: "string", required: false }
+              - { label: "Documento", name: "documento", widget: "string", required: false }
+
+  - name: "public"
+    label: "Pagina pubblica"
+    label_singular: "Pagina pubblica"
+    folder: "it/p"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "default" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "Esempio: /nome-pagina/" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+
+  - name: "libreria"
+    label: "Libreria"
+    label_singular: "libreria"
+    folder: "it/p"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "libreria" }
+      - { label: "Titolo", name: "title", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "Esempio: /nome-pagina/" }
+      - { label: "Contenuto", name: "body", widget: "markdown" }
+      - label: "Allegati"
+        name: "allegati"
+        widget: "list"
+        fields:
+          - { label: "Nome", name: "name", widget: "string" }
+          - { label: "File", name: "file", widget: "string" }
+          - { label: "Descrizione", name: "description", widget: "text" }
+          - label: "Stato"
+            name: "status"
+            widget: "select"
+            options:
+              - { label: "Pubblico", value: "pubblico" }
+              - { label: "Non condiviso", value: "non condiviso" }

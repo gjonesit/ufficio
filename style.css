@@ -1,0 +1,765 @@
+
+    body
+    {
+    font-family: 'Titillium Web';
+    background-color: #FFFFFF;
+    }
+    
+    
+    
+    a, a:hover
+    {
+    color: #0000EE;
+    }
+    
+    .form-check [type="checkbox"]:checked + label::after
+    {
+    border-color: #333;
+    background-color: #333;
+    color: #fff;
+    }
+    
+    .login_bg
+    {
+    background-color: #DDDDDD;
+    }
+    
+    .login_text, .login_text:hover
+    {
+    color: #000000;
+    }
+    
+    .logo_bg
+    {
+    background-color: #FFFFFF;
+    }
+    
+    .logo_text, .logo_text:hover
+    {
+    color: #000000;
+    }
+    
+    .menu_bg
+    {
+    background-color: #DDDDDD;
+    }
+    
+    .menu_text, .menu_text:hover
+    {
+    color: #000000;
+    }
+    
+    .footer_bg
+    {
+    background-color: #DDDDDD;
+    }
+    
+    .footer_text, .footer_text:hover
+    {
+    color: #000000;
+    }
+    
+    .primario_text, .primario_text:hover
+    {
+    color: #000000;
+    }
+    
+    .secondario_text, .secondario_text:hover
+    {
+    color: #333333;
+    }
+    
+    
+    /*===================================================*/
+    /* Personalizzazione Sfondo Testata / Menù / Footer */
+    /*=================================================*/
+    
+    .it-header-wrapper .it-header-slim-wrapper {
+    background: #62b4bf;
+    }
+    
+    .it-header-slim-wrapper .it-header-slim-wrapper-content a {
+    color: #000000;
+    }
+    
+    .it-header-slim-wrapper .it-header-slim-wrapper-content .modal a {
+    color: #0000EE;
+    }
+    
+    .it-header-slim-wrapper .it-header-slim-wrapper-content a .icon {
+    fill: #000000;
+    }
+    
+    .it-header-wrapper .it-header-center-wrapper {
+    background-color: #FFFFFF!important;
+    }
+    
+    .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a {
+    color: #000000;
+    }
+    
+    .it-header-wrapper .it-header-navbar-wrapper {
+    background: #62b4bf;
+    }
+    
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link {
+    color: #000000;
+    }
+    
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg {
+    fill: #000000;
+    }
+    
+    .it-header-wrapper .it-header-navbar-wrapper .custom-navbar-toggler svg
+    {
+    fill: #000000;
+    }
+    
+    
+    
+    /*==========================================*/
+    /* Sezione Footer */
+    /*==========================================*/
+    
+    .it-footer .it-footer-main {
+    background-color: #DDDDDD;
+    }
+    
+    .it-footer-main
+    {
+    font-family: "Titillium Web"!important;
+    color: #000000;
+    }
+    
+    .it-footer-main h3{
+    color: #000000;
+    }
+    
+    .it-footer-main a{
+    color: #000000;
+    }
+    
+    
+    /*==========================================*/
+    /* Login / Social */
+    /*==========================================*/
+    
+    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .it-access-top-wrapper button {
+    background: #FFFFFF;
+    color: #000000;
+    }
+    
+    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .it-access-top-wrapper input {
+    background: #FFFFFF;
+    color: #000000;
+    }
+    
+    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .it-access-top-wrapper button:hover {
+    background: #FFFFFF;
+    }
+    
+    .it-header-slim-wrapper .it-header-slim-wrapper-content .header-slim-right-zone .link-list-wrapper ul li a span {
+    color: #333;
+    }
+    
+    .it-nav-wrapper .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone {
+    color: #000000;
+    }
+    
+    .it-nav-wrapper .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone .it-socials ul .icon {
+    fill: #000000;
+    }
+    
+    .it-nav-wrapper .it-header-center-wrapper .it-header-center-content-wrapper .it-right-zone .it-socials ul li a:hover .icon {
+    fill: #DDDDDD;
+    }
+    
+    img.avatar-profile {
+    border: 2px solid #FFFFFF;
+    }
+    
+    /*==========================================*/
+    /* Login Modal Form */
+    /*==========================================*/
+    
+    .modal-dialog .modal-content .md-form label.active {
+    color: #DDDDDD;
+    }
+    
+    .modal-dialog .modal-content .btn.color-box {
+    color: #000000;
+    }
+    
+    .modal-dialog .modal-content .color-box {
+    background: #DDDDDD!important;
+    }
+    
+    .modal-dialog .modal-content .btn .fab {
+    color: #DDDDDD!important;
+    }
+    
+    
+    /*==========================================*/
+    /* Logo - Intestazione*/
+    /*==========================================*/
+    .it-brand-wrapper .testo_t1, .it-brand-wrapper .testo_t2, .it-brand-wrapper .testo_t3
+    {
+    font-family: 'Titillium Web';
+    color: #000000;
+    }
+    
+    
+    /*==========================================*/
+    /* Menu di navigazione*/
+    /*==========================================*/
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li a span {
+    color: #333333!important;
+    }
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li a:hover span {
+    color: #333333!important;
+    }
+    
+    .it-header-wrapper .it-nav-wrapper .it-header-navbar-wrapper.sticky
+    {
+    background-color: #DDDDDD;
+    }
+    
+    .navbar .dropdown-menu
+    {
+    background-color: #FFFFFF;
+    }
+    
+    .navbar .dropdown-menu::before {
+    background-color: #FFFFFF;
+    }
+    
+    
+    /*==========================================*/
+    /* Sezione News */
+    /*==========================================*/
+    
+    .sezione-notizie .card .card-body h3.card-title {
+    color: #000000;
+    }
+    
+    .sezione-notizie a.read-more {
+    color: #333333;
+    }
+    
+    .sezione-notizie .card .card-body h3 a {
+    color: #000000;
+    }
+    
+    .sezione-notizie .card .card-body h3 a:hover {
+    color: #000000;
+    }
+    
+    .sezione-notizie .card .card-body p {
+    font-family: "Titillium Web";
+    }
+    
+    .sezione-notizie .card .card-body p {
+    color: #333333;
+    }
+    
+    .sezione-notizie .card:hover
+    {
+    outline: 3px solid #0000EE;
+    }
+    
+    
+    /*==========================================*/
+    /* Sezione news a scorrimento */
+    /*==========================================*/
+    
+    .sezione-scorrimento .card .card-body h3 a
+    {
+    color: #000000;
+    }
+    
+    
+    /*==========================================*/
+    /* Widgets */
+    /*==========================================*/
+    
+    #amministrativo .sezione-ammin:hover
+    {
+    outline: 3px solid #0000EE;
+    }
+    
+    .sezione-widgets .widget:hover, .sezione-widgets .widget-servizi:hover
+    {
+    outline: 3px solid #0000EE;
+    }
+    
+    
+    /*==========================================*/
+    /* Eventi */
+    /*==========================================*/
+    
+    .planning-calendar {
+    font-family: "Titillium Web";
+    }
+    
+    .planning-day-listed:focus {
+    background-color: #FFFFFF;
+    }
+    
+    .planning-day.planning-day-today {
+    background-color: #FFFFFF;
+    }
+    
+    .latest-news-feed .latest-news-feed-header{
+    background-color: #DDDDDD;
+    color: #000000;
+    }
+    
+    .latest-news-feed .latest-news-feed-body h3 a,
+    .latest-news-feed .latest-news-feed-body h3 a:hover{
+    color: #000000;
+    font-family: "Titillium Web";
+    }
+    
+    .planning-day.planning-day-today .planning-day-num
+    {
+    color: #000000;
+    }
+    
+    .planning-day.planning-day-listed.focus--mouse .planning-day-num
+    {
+    color: #000000;
+    }
+    
+    .planning-day.planning-day-listed:focus .planning-day-num
+    {
+    color: #000000;
+    }
+    
+    /*==========================================*/
+    /* Back to top */
+    /*==========================================*/
+    
+    .back-to-top, .back-to-top:hover {
+    background: #FFFFFF;
+    }
+    
+    .icon-light {
+    fill: #000000 !important;
+    }
+    
+    /*==========================================*/
+    /* Breadcrumb & Bottone Scarica Visualizza */
+    /*==========================================*/
+    
+    .breadcrumb-container .breadcrumb .breadcrumb-item.active a {
+    color: #000000;
+    }
+    
+    .breadcrumb-container .breadcrumb .breadcrumb-item a {
+    color: #333;
+    }
+    
+    
+    .btn-warning {
+    color: #fff!important;
+    background-color: #DDDDDD;
+    border-color: #DDDDDD;
+    }
+    
+    .btn-warning:hover {
+    color: #fff!important;
+    background-color: #3f3e3e;
+    border-color: #3f3e3e;
+    }
+    
+    /*==========================================*/
+    /* Pagina Semplice */
+    /*==========================================*/
+    
+    .contenuto-sito h1
+    {
+    color: #000000;
+    }
+    
+    .contenuto-sito p a {
+    color: #0000EE;
+    }
+    
+    /*==========================================*/
+    /* Gruppo di Pagine */
+    /*==========================================*/
+    
+    .contenuto-sito .section-gruppo-pagina .content-index--menu ul.lv1 li.list-element.lv1>.media {
+    background-color: #DDDDDD;
+    color: #000000!important;
+    border-bottom: 0px;
+    }
+    
+    .contenuto-sito .section-gruppo-pagina .content-index--menu ul.lv1 li.list-element.lv1>.media a {
+    color: #000000!important;
+    border-bottom: 0px;
+    }
+    
+    
+    /*==========================================*/
+    /* Panoramica */
+    /*==========================================*/
+    
+    .contenuto-sito.contenuto-panoramica .section_title
+    {
+    background: #DDDDDD;
+    }
+    
+    .contenuto-sito.contenuto-panoramica h1, .contenuto-sito.contenuto-panoramica p
+    {
+    color: #000000;
+    }
+    
+    
+    /*==========================================*/
+    /* Schede / Servizi */
+    /*==========================================*/
+    
+    .contenuto-schede-index .section_title
+    {
+    background: #DDDDDD;
+    }
+    
+    .contenuto-schede-index .section_title h1, .contenuto-schede-index .section_title p
+    {
+    color: #000000;
+    }
+    
+    
+    /*==========================================*/
+    /* News */
+    /*==========================================*/
+    .contenuto-sito .pagina .card.card-big .flag-icon{
+    background: #DDDDDD;
+    }
+    
+    .contenuto-sito .pagina .card.border-left-card {
+    border-left: 5px solid #DDDDDD;
+    }
+    
+    .contenuto-sito .pagina .card.card-big .card-body p{
+    font-family: "Titillium Web",Geneva,Tahoma,sans-serif;
+    }
+    
+    
+    /*==========================================*/
+    /* Amministrazione / Albo */
+    /*==========================================*/
+    
+    .amministrazione-trasparente .indice .categorie li.categorie-item.titolo_trasparenza {
+    background-color: #DDDDDD!important;
+    }
+    
+    .amministrazione-trasparente .indice .categorie li.categorie-item.titolo_trasparenza label{
+    color: #000000!important;
+    }
+    
+    .amministrazione-trasparente .indice .categorie li.categorie-item.oggetto_trasparenza a{
+    color: #000000;
+    }
+    
+    .badge-light{
+    color: #000000;
+    background-color: #DDDDDD;
+    }
+    
+    /* Colonna DX*/
+    
+    .amministrazione-trasparente .trasparenza-content .tabella-ricerca .search-table2 button{
+    border: 1px solid #ddd;
+    background: #fff;
+    }
+    
+    .amministrazione-trasparente .trasparenza-content #box-search {
+    border: 1px solid #ddd;
+    background: #fff;
+    }
+    
+    .amministrazione-trasparente .trasparenza-content #box-categoria {
+    border: 1px solid #ddd;
+    background: #fff;
+    }
+    
+    .amministrazione-trasparente .trasparenza-content #box-search .form_sez_trasparenza {
+    color: #767676!important;
+    }
+    
+    .amministrazione-trasparente .trasparenza-content #box-categoria .select_trasparenza {
+    color: #333333;
+    }
+    
+    
+    /*==========================================*/
+    /* Pagina Speciale 1 */
+    /*==========================================*/
+    
+    .tabella-standard #testata-tabella, .tabella-standard2 #testata-tabella
+    {
+    background:#DDDDDD;
+    color:white;
+    }
+    
+    table .odd{
+    background:#f9f9f9;
+    }
+    table .even{
+    background:#eee;
+    }
+    
+    .tabella #testata-tabella{
+    background:#DDDDDD;
+    color:white;
+    }
+    
+    .tabella td, .tabella th{
+    border: 1px solid #fff;
+    }
+    
+    span.orari-precise {
+    color: #333;
+    }
+    
+    span.docente-attivo {
+    color: #333;
+    }
+    
+    #serbatoio-pon #testata-serbatoio {
+    background:#DDDDDD;
+    color:white;
+    }
+    
+    #serbatoio-pon td, #serbatoio-pon th{
+    border: 1px solid #ccc;
+    }
+    
+    /*==========================================*/
+    /* Pagina Speciale 2: Galleria Video; */
+    /*==========================================*/
+    
+    .contenuto-sito .boxvideo {
+    background-color: #eee;
+    }
+    
+    .contenuto-sito .box-video{
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    }
+    
+    .video-card-slide .it-video-card-slide {
+    border: 1px solid #e3e4e6;
+    }
+    
+    .video-card-slide .it-video-card-slide .owl-nav button{
+    background-color: #DDDDDD;
+    color: #fff;
+    }
+    
+    .video-card-slide .it-video-card-slide .owl-dots .owl-dot {
+    background: #DDDDDD;
+    }
+    
+    /*==========================================*/
+    /* Pagina Speciale 3: Contatti */
+    /*==========================================*/
+    
+    .sezione-contatti {
+    border: 1px solid #e3e3e3;
+    background-color: #f5f5f5;
+    }
+    
+    .sezione-contatti .contact-dati .unico-info p{
+    color: #000000;
+    }
+    
+    .sezione-contatti .contact-dati .unico-info a{
+    color: #000;
+    }
+    
+    .sezione-contatti .card:after {
+    background-color: #fff;
+    }
+    
+    .sezione-contatti .title-contact h3 {
+    color: #000000;
+    }
+    
+    .sezione-contatti .form-group .input-group-text {
+    color: #495057;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    }
+    
+    .sezione-contatti .form-group .input-group input {
+    border-top: 1px solid #f5f5f5;
+    }
+    
+    .sezione-contatti .card-body .send-button .btn-rounded {
+    color: #333333;
+    background-color: #FFFFFF;
+    }
+    
+    /* ---------------------------*/
+    
+    .sezione-informazione-scuola {
+    border: 1px solid #e3e3e3;
+    background-color: #f5f5f5;
+    }
+    
+    .sezione-informazione-scuola #tabelle-orari {
+    background-color: #fff;
+    }
+    
+    .sezione-informazione-scuola #tabelle-orari td {
+    border: 1px solid#ccc;
+    }
+    
+    .sezione-informazione-scuola .nota-bene a {
+    color: #000000;
+    }
+    
+    
+    /*==========================================*/
+    /* Varie */
+    /*==========================================*/
+    
+    .rssmaintitle
+    {
+    background-color: #DDDDDD;
+    color: #000000;
+    }
+    
+    .rsstitle
+    {
+    color: #000000;
+    }
+    
+    .rsstext
+    {
+    color: #333333;
+    }
+    
+    :focus:not(.focus--mouse):not([data-focus-mouse="true"]) {
+    border-color: #0000EE !important;
+    box-shadow: 0 0 0 2px #0000EE !important;
+    outline: 0 !important;
+    }
+    
+    
+    /*==========================================*/
+    /* MEDIA QUERIES */
+    /*==========================================*/
+    
+    @media (max-width: 1200px) and (min-width: 992px){
+    
+    }
+    
+    @media (max-width: 991px) and (min-width: 768px){
+    .it-header-wrapper .it-header-navbar-wrapper {
+    background: none;
+    color: #000000;
+    }
+    
+    img.avatar-profile {
+    border: 2px solid #FFFFFF;
+    }
+    
+    .navbar .navbar-collapsable .menu-wrapper {
+    background-color: #DDDDDD;
+    }
+    
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link {
+    color: #000000;
+    }
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li h3 {
+    color: #000000;
+    }
+    
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg {
+    fill: #000000;
+    }
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li a span {
+    color: #333333!important;
+    }
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li a:hover span {
+    color: #333333!important;
+    }
+    
+    .amministrazione-trasparente .trasparenza-content #box-categoria .select_trasparenza {
+    color: #333333;
+    }
+    }
+    
+    @media (max-width: 767px) and (min-width: 408px){
+    }
+    
+    @media (max-width: 767px){
+    .it-header-wrapper .it-header-navbar-wrapper {
+    background: none;
+    color: #000000;
+    }
+    
+    img.avatar-profile {
+    border: 2px solid #FFFFFF;
+    }
+    
+    .navbar .navbar-collapsable .menu-wrapper {
+    background-color: #DDDDDD;
+    }
+    
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link {
+    color: #000000;
+    }
+    
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li h3 {
+    color: #000000;
+    }
+    
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg {
+    fill: #000000;
+    }
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li a span {
+    color: #333333!important;
+    }
+    
+    .it-header-navbar-wrapper .link-list-wrapper ul li a:hover span {
+    color: #333333!important;
+    }
+    
+    .video-card-slide .it-video-card-slide {
+    border: 1px solid #e3e4e6;
+    }
+    }
+
+/*
+     FILE ARCHIVED ON 02:47:44 Jan 27, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 22:42:55 Feb 05, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.595
+  exclusion.robots: 0.02
+  exclusion.robots.policy: 0.008
+  esindex: 0.011
+  cdx.remote: 30.28
+  LoadShardBlock: 206.785 (3)
+  PetaboxLoader3.datanode: 162.8 (4)
+  load_resource: 152.274
+  PetaboxLoader3.resolve: 106.434
+*/

@@ -1,0 +1,342 @@
+.sp-calendario-import-card
+{
+    margin: 10px 10px 10px 10px;   
+    text-align: center;
+    text-decoration: none;
+    color: #666;
+}
+
+.sp-calendario-import-card.disabled
+{
+    opacity: 0.5;
+}
+
+.sp-calendario-import-card.disabled img
+{
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
+.sp-calendario-import-card card
+{
+    width: 200px;
+}
+    
+.sp-calendario-import-card img
+{
+    height: 200px;
+    width: 200px;
+}
+
+.sp-calendario-import-card:hover
+{
+    outline: 3px solid #666;
+    text-decoration: none;
+    color: #666;
+}
+
+.sp-calendario-icona
+{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.sp-accordion-img
+{
+    width: 50px;
+    margin-right: 10px;
+}
+
+.sp-accordion-row
+{
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    padding: 10px;
+    align-items: center;
+}
+
+.sp-accordion-row a:not(.btn)
+{
+    color: #303030;
+}
+
+.sp-accordion-row a:hover:not(.btn)
+{
+    color: #303030;
+}
+
+.sp-accordion-row-titolo
+{
+    font-size: 1em;
+}
+
+.sp-accordion-row-sottotitolo
+{
+    font-size: 0.8em;
+}
+
+.fc-list-event.fc-event 
+{
+    cursor: pointer;
+}
+
+
+.sp-list.dd
+{
+    max-width:100%;
+}
+
+.sp-list .dd-list
+{
+    list-style:none; 
+    padding:0;
+    margin:0;
+}
+
+.sp-list .dd-handle
+{
+    padding: 10px 10px 0px 10px;
+    margin-bottom: 10px;
+    height: 60px;
+}
+
+.sp-list .dd-placeholder 
+{ 
+    display: block; 
+    position: relative; 
+    margin: 0; 
+    padding: 0; 
+    min-height: 20px; 
+    font-size: 13px; 
+    line-height: 20px;
+}
+
+.sp-list .dd-item
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.dd-ghost
+{ 
+    position: absolute; 
+    pointer-events: none; 
+    z-index: 9999;
+}
+
+.dd-ghost > .dd-item .dd-handle 
+{ 
+    margin-top: 0;
+}
+
+.sp-list .padding
+{
+    padding-left: 40px;
+}
+
+.sp-list-item-titolo
+{
+    font-size: 1.5em;
+    color: #666;
+}
+
+.sp-list .dd-collapsed .dd-expand 
+{
+    display: inline-block;
+}
+
+tr.riga-calendario th, tr.riga-calendario td
+{
+    vertical-align: middle;
+}
+
+.panolens
+{
+    height:300px;
+}
+
+.map
+{
+    height:300px;
+}
+
+.pac-container 
+{
+    z-index: 10000 !important;
+    display: block !important;
+}
+
+#schoolplanner button.dropdown-toggle 
+{
+    border-radius: 15px;
+}
+
+#schoolplanner .bootstrap-select-wrapper button .filter-option::after
+{
+    background: none;
+}
+
+#schoolplanner .sp-filter-item
+{
+    padding: 10px 15px;
+    background-color: #ddd;
+    border-radius: 24px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#schoolplanner .sp-filter-item-del
+{
+    margin-left: 10px;
+    color: #666;
+}
+
+#schoolplanner .sp-filter-icon 
+{
+    margin-right:5px;
+}
+
+.bootstrap-select-wrapper .sp-changeview button .filter-option::after 
+{
+    background: none;
+}
+
+.sp-container .navbar .dropdown-toggle
+{
+    display:inline-flex;
+}
+
+.sp-changeview button
+{
+    border: 1px solid #666;
+    border-radius: 15px;
+}
+
+.sp-sidebar
+{
+    width: 300px;
+    z-index: 50;
+    position: absolute;
+    right: 0;
+    background-color: #eeeeee;
+    margin-top: 0px;
+    margin-right: 6px;
+    padding: 10px;
+}
+
+.sp-sidebar ul
+{
+    list-style-type: none;
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.sp-sidebar ul li
+{
+    padding-bottom: 5px;
+}
+
+.sp-sidebar img
+{
+    width:32px;
+    height:32px;
+}
+
+.sp-container #menu-toggle
+{
+    padding: 10px;
+    margin-right: 0px;
+}
+
+.sp-container #menu-toggle.toggle
+{
+    background-color: #eeeeee;
+}
+
+.sp-container .fc-daygrid-event
+{
+    width: 6px;
+    height: 6px;
+}
+
+.sp-container .fc-daygrid-event-harness
+{
+    display: inline-block;
+}
+
+.sp-container .fc .fc-daygrid-body-natural .fc-daygrid-day-events
+{
+    margin-bottom: 0px;
+}
+
+#schoolplanner .dropdown-menu.show:not(.inner)
+{
+    border: 1px solid #999;
+}
+
+.sp-card-content
+{
+    width: calc(100% - 100px);
+    height: 80px;
+    overflow: hidden;
+}
+
+.sp-card-content a
+{
+    font-size: .9rem;
+}
+
+.sp-event.card::after
+{
+    content: "";
+    margin-top: 0px;
+    margin-left: 24px;
+}
+
+.sp-event.card .card-hour
+{
+    font-weight: normal;
+    font-size: .8em;
+}
+
+.sp-event.card .card-icon
+{
+    width: 20px;
+    margin-right: 5px;
+}
+
+
+@media screen and (max-width:767px) 
+{ 
+    .fc-toolbar.fc-header-toolbar 
+    {
+        flex-direction: column;
+    }
+    
+    .fc-toolbar-chunk 
+    { 
+        display: table-row; 
+        text-align: center; 
+        padding: 5px 0;
+    }
+    
+    .fc-button-group
+    {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (min-width:1200px)
+{
+    #schoolplanner .bs-searchbox
+    {
+        min-width: 400px;
+    }
+
+    #schoolplanner .sp-filter-evento .dropdown-menu.show
+    {
+        left: auto !important;
+        right: 0px;
+    }
+}
