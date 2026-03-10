@@ -1,46 +1,379 @@
-<header id="mainheader" class="it-header-wrapper it-header-sticky headerpnrr">
-   <div class="barrafvg it-header-slim-wrapper">
-      <div class="container it-header-slim-wrapper-content p-0">
-         <div>
-            <a href="https://18f.it" aria-label="vai al sito 18F" target="_blank" class="d-none d-lg-block">SITO GESTITO DA GABRIEL JONES</a>
-            <div class="fvg-mobile"><a href="https://18f.it" aria-label="vai al sito 18F" target="_blank"><b>SITO GESTITO DA GABRIEL JONES</b></a></div>
-            <!----><!----><!---->
-         </div>
-         <div class="it-header-slim-right-zone">
-            <div class="nav-item d-flex">
-               <!----><!---->
-               <app-header-profile>
-                  <a class="btn btn-regione btn-icon btn-full" hrer="/hh/areapersonale/">
-                     <span class="rounded-icon">
-                        <svg role="presentation" aria-label="utente" class="icon icon-primary">
-                           <use xlink:href="{{ site.url }}/sprites.svg#it-user"></use>
-                        </svg>
-                     </span>
-                     <span class="d-none d-lg-block">Accedi all'area personale</span><!----><!----><!---->
-                  </a>
-                  <!----><!----><!----><!----><!---->
-               </app-header-profile>
-               <!---->
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="it-nav-wrapper">
-
-      
+    
 
 
+
+
+<a class="skip-link screen-reader-text" href="{{ site.url }}/#maincontent">Salta al contenuto</a>
+<header class="it-header-wrapper">
+<div class="it-header-slim-wrapper">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="it-header-slim-wrapper-content">
+<div class="nav-mobile">
+
+
+</div>
+<!-- Sezione Autenticazione / Scelta Lingua -->
+<div class="header-slim-right-zone">
+<!-- multilang space -->
+
+<div class="it-access-top-wrapper">
+
+<div id="user-area">
+  <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#LoginModalForm">
+    
+<strong><span class="rounded-icon" aria-hidden="true">
+        <svg class="icon icon-danger">
+            <use xlink:href="/pvw2/img/sprite.svg#it-user"></use>
+        </svg>
+    </span>
+  </strong>
+    
+    Accedi
+  </button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+</div>
+
+
+<!-- Modal Login -->
+<div class="modal fade" id="LoginModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content login-form">
+<div class="modal-testata text-center">
+<h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Accedi</strong></h3>
+</div>
+<div class="modal-body mx-4">
+<div class="md-form mb-5">
+<input type="email" id="accedi-mail" class="form-control validate">
+<label data-error="wrong" data-success="right" for="accedi-mail">Nome Utente</label>
+</div>
+<div class="md-form pb-3">
+<input type="password" id="accedi-pwd" class="form-control validate">
+<label data-error="wrong" data-success="right" for="accedi-pwd">Password</label>
+</div>
+
+
+<div class="text-center mb-3">
+  <button id="login-btn" class="btn btn-primary btn-block">Accedi</button>
+</div>
+
+<div class="text-center">
+  <small id="login-error" style="color:red;"></small>
+</div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /Modal Login -->
+
+<!-- Modal selezione utente -->
+<div class="modal fade" id="UserSelectModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content login-form">
+<div class="modal-testata text-center">
+<h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel2"><strong>Seleziona utente</strong></h3>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="sr-only">button close</span>
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body mx-4">
+
+</div>
+</div>
+</div>
+</div>
+<!-- /Modal selezione utente -->
+
+<!-- Modal pwd dimenticata -->
+<div class="modal fade" id="ForgotPwdModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content login-form">
+<div class="modal-testata text-center">
+<h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel3"><strong>Recupero password</strong></h3>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="sr-only">button close</span>
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body mx-4">
+<form id="pvw-reminder-form">
+<div class="md-form pb-3">
+<input type="email" id="forgot-mail" name="eml" class="form-control validate">
+<label data-error="wrong" data-success="right" for="forgot-mail">E-mail</label>
+<small>Verrà inviato un messaggio all'indirizzo indicato con le istruzioni necessarie.</small><br><br>
+<small>Non hai una e-mail associata al nome utente? Effettua il reset della password tramite la
+<a href="https://web.spaggiari.eu" target="_blank">Login Spaggiari</a></small>
+</div>
+<div class="md-form pb-1">
+<input type="text" name="captcha" class="captcha" placeholder="Codice di controllo">
+</div>
+<div class="md-form pb-1">
+<div class="alert alert-success reset-success d-none" role="alert">
+E-mail inviata, si prega di controllare la casella di posta elettronica!
+</div>
+</div>
+<div class="md-form pb-1">
+<div class="alert alert-danger reset-error d-none" role="alert">
+
+</div>
+</div>
+<div class="text-center mb-3">
+<input type="hidden" value="akRSPWRQ" name="a">
+<input type="button" value="Invia" class="btn color-box btn-block btn-rounded z-depth-1a btn-reminder"/>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<!-- /Modal pwd dimenticata -->
+
+<!-- Modal vari -->
+<div class="modal fade" tabindex="-1" role="dialog" id="error-modal" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<span class="modal-title"><strong>Errore</strong></span>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-12 text-center mt-1">
+<i aria-hidden="true" class="fas fa-times-circle error-modal-icon"></i>
+<p class="error-modal-text text-center mt-2 mb-0"></p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary btn-azione" data-dismiss="modal">Chiudi</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="ok-modal" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<span class="modal-title"><strong>Successo</strong></span>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-12 text-center mt-1">
+<i aria-hidden="true" class="fas fa-check-circle ok-modal-icon"></i>
+<p class="ok-modal-text text-center mt-2 mb-0"></p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary btn-azione" data-dismiss="modal">Chiudi</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="info-modal" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<span class="modal-title"><strong>Informazione</strong></span>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-12 text-center mt-1">
+<i aria-hidden="true" class="fas fa-info-circle info-modal-icon"></i>
+<p class="info-modal-text text-center mt-2 mb-0"></p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary btn-azione" data-dismiss="modal">Chiudi</button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="loading-modal" data-backdrop="static" data-keyboard="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<span class="modal-title" style="font-weight:bold">Attendere...</span>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-12 text-center py-5 px-5">
+<div class="d-flex justify-content-center">
+<div class="spinner-border" role="status"></div>
+</div>
+Attendere il completamento dell'operazione...
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="sp-event-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-xl" role="document">
+<div class="modal-content">
+<div class="modal-body mx-4">
+
+</div>
+<div class="modal-footer">
+<div class="btn-modal-fixed-top-right">
+<button type="button" class="btn btn-outline-secondary btn-modal-close" data-dismiss="modal" data-tooltip="tooltip" title="Chiudi">
+<span class="sr-only">Chiudi</span>
+<svg class="icon">
+<use xlink:href="/pvw2/img/sprite.svg#it-close-big"></use>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="content-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-xl" role="document">
+<div class="modal-content">
+<div class="modal-body">
+
+</div>
+<div class="modal-footer">
+<div class="btn-modal-fixed-top-right">
+<button type="button" class="btn btn-outline-secondary btn-modal-close" data-dismiss="modal" data-tooltip="tooltip" title="Chiudi">
+<span class="sr-only">Chiudi</span>
+<svg class="icon">
+<use xlink:href="/pvw2/img/sprite.svg#it-close-big"></use>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="confirm-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<span class="modal-title" style="font-weight:bold">Conferma</span>
+</div>
+<div class="modal-body">
+<div class="confirm-modal-text"></div>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+<button type="button" class="btn btn-primary" data-dismiss="modal">Conferma</button>
+</div>
+</div>
+</div>
+</div>
+<!-- /Modal vari -->
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="it-nav-wrapper">
 <div class="it-header-center-wrapper">
 <div class="container">
 <div class="row">
 <div class="col-12">
 <div class="it-header-center-content-wrapper">
 <div class="it-brand-wrapper">
-<a href="/" title="Torna alla homepage">
+<a href="{{ site.url }}" title="Torna alla homepage">
+
+<h1>
+<span class="media">
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="it-header-center-wrapper">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="it-header-center-content-wrapper">
+<div class="it-brand-wrapper">
+<a href="/" title="Torna alla homepage" class="" data-focus-mouse="false">
 
 <div>
 <span class="media">
-<img class="align-self-center logo_scuola" src="https://gabrielmatteojones.github.io/ufficio.gabrieljones.it/header.png" alt="Liceo Leopardi - Majorana">
+<img class="align-self-center logo_scuola" src="https://bw.jareads.org/images/logo_x.png" alt="IKG">
+
+<span class="media-body ml-2 text-truncate">
+<span class="testo_t1">&nbsp;</span>
+<span class="testo_t2">Desk Gabriel Jones</span>
+<span class="testo_t3">&nbsp;</span>
+</span>
+
 
 </span>
 </div>
@@ -71,80 +404,369 @@
 
 
 
-      
-
-
-      <div class="it-header-navbar-wrapper theme-light-desk">
-  <div class="container-xxl">
-    <div class="row">
-      <div class="col-12">
-        <!--start nav-->
-        <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
-          <button class="custom-navbar-toggler" type="button" aria-controls="nav3" aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav3">
-            <svg class="icon">
-              <use href="{{ site.url}}/sprites.svg#it-burger"></use>
-            </svg>
-          </button>
-          <div class="navbar-collapsable" id="nav3" tabindex="-1">
-            <div class="close-div">
-              <button class="btn close-menu" type="button">
-                <span class="visually-hidden">Nascondi la navigazione</span>
-                <svg class="icon"><use href="{{ site.url}}/sprites.svg#it-close-big"></use></svg>
-              </button>
-            </div>
-            <div class="menu-wrapper">
-              <ul class="navbar-nav">
 
 
 
-
-
-  {% for menu in site.data.nav %}
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="{{ menu.id }}">
-        <span>{{ menu.title }}</span>
-        <svg class="icon icon-xs"><use href="{{ site.url }}/sprites.svg#it-expand"></use></svg>
-      </a>
-      <div class="dropdown-menu" role="region" aria-labelledby="{{ menu.id }}">
-        <div class="link-list-wrapper">
-          <ul class="link-list container">
-            {% for link in menu.links %}
-              {% if link.divider %}
-                <li><span class="divider"></span></li>
-              {% else %}
-                <li><a class="dropdown-item list-item" href="{{ link.url }}"><span>{{ link.text }}</span></a></li>
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </li>
-  {% endfor %}
+    
 
 
 
+</span>
+</h1>
 
 
-
-
-
-
-
-
-
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
 
+<div id="navigation-bar" class="it-header-navbar-wrapper">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<nav class="navbar navbar-expand-lg has-megamenu" aria-label="Menu principale">
+<button class="custom-navbar-toggler" type="button" aria-controls="nav10" aria-expanded="false" aria-label="Toggle navigation" data-target="#nav10">
+<svg class="icon">
+<use xlink:href="/pvw2/img/sprite.svg#it-burger"></use>
+</svg>
+</button>
+<div class="navbar-collapsable" id="nav10">
+<div class="overlay"></div>
+<div class="close-div sr-only">
+<button class="btn close-menu" type="button"><span class="it-close"></span>close</button>
+</div>
+<div class="menu-wrapper">
+<ul class="navbar-nav" data-element="menu">
+
+
+  
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="{{ site.url }}/#" data-toggle="dropdown" aria-expanded="false">
+<span>Panoramica</span>
+<svg class="icon icon-xs">
+<use xlink:href="/pvw2/img/sprite.svg#it-expand"></use>
+</svg>
+</a>
+
+<div class="dropdown-menu">
+<div class="link-list-wrapper">
+<ul class="link-list" data-element="services-submenu">
+
+<li class="d-none">
+<a class="list-item" href="{{ site.url }}/" target="_self" data-element="overview">
+<span><strong>home</strong></span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/dashboard" target="_self" data-element="service-type">
+<span>Dashboard</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/schede/osf/" target="_self" data-element="service-type">
+<span>Schede OSF</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/schede/work/" target="_self" >
+<span>Scheda Lavoro</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/fatturazioni/" target="_self" >
+<span>Fatture</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/AUDGJ/" target="_self" >
+<span>Area Riservata - UDGJ</span>
+</a>
+</li>
+
+
+</ul>
+</div>
+</div>
+</li>
 
 
 
 
-   </div>
+  
+  
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="{{ site.url }}/#" data-toggle="dropdown" aria-expanded="false">
+<span>Area Socio Educativa 1</span>
+<svg class="icon icon-xs">
+<use xlink:href="/pvw2/img/sprite.svg#it-expand"></use>
+</svg>
+</a>
+
+<div class="dropdown-menu">
+<div class="link-list-wrapper">
+<ul class="link-list" data-element="services-submenu">
+
+<li class="d-none">
+<a class="list-item" href="{{ site.url }}/areasocioeducativa/" target="_self" data-element="overview">
+<span><strong>Panoramica</strong></span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/oratorio26/" target="_self" data-element="service-type">
+<span>Registro Personale</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/GREST/" target="_self" data-element="service-type">
+<span>GREST</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/areasocioeducativa/" target="_self" data-element="service-type">
+<span>Oratorio</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="{{ site.url }}/#" data-toggle="dropdown" aria-expanded="false">
+<span>Schede</span>
+<svg class="icon icon-xs">
+<use xlink:href="/pvw2/img/sprite.svg#it-expand"></use>
+</svg>
+</a>
+
+<div class="dropdown-menu">
+<div class="link-list-wrapper">
+<ul class="link-list" data-element="news-submenu">
+
+<li class="d-none">
+<a class="list-item" href="{{ site.url }}/schede/" target="_self" data-element="overview">
+<span><strong>Schede Aperte</strong></span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/schede/osf/" target="_self" >
+<span>Scheda Opera Sacra Famiglia</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/schede/work/" target="_self" >
+<span>Scheda Lavoro</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/schede/cbs/" target="_self" >
+<span>Scheda CBS - Protected 3</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/schede/finanza1/" target="_self" >
+<span>Scheda Finanza</span>
+</a>
+</li>
+
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/schede/docs-policy/" target="_self" >
+<span>DOCS POLICY</span>
+</a>
+</li>
+  
+</ul>
+</div>
+</div>
+</li>
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="{{ site.url }}/#" data-toggle="dropdown" aria-expanded="false">
+<span>Pubblico</span>
+<svg class="icon icon-xs">
+<use xlink:href="/pvw2/img/sprite.svg#it-expand"></use>
+</svg>
+</a>
+
+<div class="dropdown-menu">
+<div class="link-list-wrapper">
+<ul class="link-list" data-element="teaching-submenu">
+
+<li class="d-none">
+<a class="list-item" href="{{ site.url }}/public/" target="_self" data-element="overview">
+  <span><strong>Home Pubblica</strong></span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/public/OPAC/" target="_self" >
+<span>OPAC</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/public/archivio/" target="_self" >
+<span>Archivio Pubblico</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/public/FOIA/" target="_self" >
+<span>FOIA</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/public/aree/" target="_self" >
+<span>Aree dell'ufficio (Public Page)</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/public/progetti/polodellegiovanieta/" target="_self" >
+<span>Polo delle giovani età</span>
+</a>
+</li>
+
+<li>
+<a class="list-item" href="{{ site.url }}/public/FOIA/" target="_self" >
+<span>FOIA</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="{{ site.url }}/#" data-toggle="dropdown" aria-expanded="false">
+<span>Policy & Documenti</span>
+<svg class="icon icon-xs">
+<use xlink:href="/pvw2/img/sprite.svg#it-expand"></use>
+</svg>
+</a>
+
+<div class="dropdown-menu">
+<div class="link-list-wrapper">
+<ul class="link-list" data-element="services-submenu">
+
+<li class="d-none">
+<a class="list-item" href="{{ site.url }}/policy/" target="_self" data-element="overview">
+<span><strong>Policy</strong></span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/documenti/" target="_self" data-element="service-type">
+<span>Policy Documenti</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/archivio/documenti/" target="_self" data-element="service-type">
+<span>Archivio Documenti</span>
+</a>
+</li>
+
+</ul>
+</div>
+</div>
+</li>
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="{{ site.url }}/#" data-toggle="dropdown" aria-expanded="false">
+<span>OPAC</span>
+<svg class="icon icon-xs">
+<use xlink:href="/pvw2/img/sprite.svg#it-expand"></use>
+</svg>
+</a>
+
+<div class="dropdown-menu">
+<div class="link-list-wrapper">
+<ul class="link-list" data-element="services-submenu">
+
+<li class="d-none">
+<a class="list-item" href="{{ site.url }}/OPAC/" target="_self" data-element="overview">
+<span><strong>Panoramica</strong></span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/OPAC/admin/" target="_self" data-element="service-type">
+<span>OPAC Admin</span>
+</a>
+</li>
+
+
+<li>
+<a class="list-item" href="{{ site.url }}/OPAC/listadesideri/" target="_self" data-element="service-type">
+<span>Lista dei desideri</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</li>
+  
+<li class="nav-item">
+<a class="nav-link" href="{{ site.url }}//pagine/contatti" target="_self">
+<span>Contatti</span>
+</a>
+</li>
+
+
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
 </header>
