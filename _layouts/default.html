@@ -202,6 +202,53 @@
         font-size: 32px;
       }
     }
+
+
+
+
+
+
+
+
+
+    .hero {
+  background: linear-gradient(rgba(26,42,108,0.75), rgba(122,27,122,0.85)),
+              url('https://images.unsplash.com/photo-1497366216548-37526070297c');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 140px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-top: 15px;
+  opacity: 0.95;
+}
+
+.btn-hero {
+  margin-top: 25px;
+  background: white;
+  color: #7a1b7a;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 12px 28px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.btn-hero:hover {
+  background: #f2f2f2;
+  color: #7a1b7a;
+}
   </style>
 </head>
 <body>
@@ -238,6 +285,13 @@
   </div>
 </header>
 
+<section class="hero">
+  <div class="container">
+    <h1>Ufficio di Gabriel Jones</h1>
+    <p>Attività istituzionali, progetti, archivio e trasparenza amministrativa.</p>
+    <a href="{{ site.url }}/about/" class="btn btn-hero">Scopri di più</a>
+  </div>
+</section>
   
 {{ content }}
 
