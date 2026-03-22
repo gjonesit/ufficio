@@ -15,6 +15,83 @@
 
 
 
+    .container-main {
+      display: flex;
+      gap: 1px;
+      flex-wrap: wrap;
+    }
+
+    /* Sidebar minimalista */
+    .sidebar-flat {
+      width: 250px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-flat h3 {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+      padding-left: 5px;
+    }
+
+    .sidebar-flat ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .sidebar-flat ul li a {
+      display: block;
+      text-decoration: none;
+      color: #7a1b7a;
+      padding: 6px 8px;
+      font-weight: 600;
+      transition: 0.2s;
+      border-radius: 4px;
+    }
+
+    .sidebar-flat ul li a:hover {
+      background: rgba(122,27,122,0.1);
+    }
+
+    /* Pulsante burger per mobile */
+    .navbar-toggler {
+      background: #7a1b7a;
+      border: none;
+      color: white;
+      width: 100%;
+      text-align: left;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .navbar-toggler {
+        display: none;
+      }
+      .collapse.show {
+        display: block !important;
+      }
+    }
+
+    /* Contenuto principale */
+    .content {
+      flex: 1;
+      min-width: 300px;
+      padding: 10 10px;
+      color: #333;
+    }
+
+    .content h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .content p {
+      margin-bottom: 15px;
+    }
 
 
 
