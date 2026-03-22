@@ -2,11 +2,31 @@
 layout: default
 ---
 
-<article class="page">
+<div class="container-main">
+  <!-- Sidebar -->
+  <div class="sidebar-flat">
+    <h3>{{ page.sidebar_title | default: "Indice dei servizi" }}</h3>
 
-  <h1>{{ page.title }}</h1>
+    <nav class="navbar navbar-expand-md p-0">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-laterale">
+        Menu di navigazione
+      </button>
 
-  <div class="entry">
-    {{ content }}
+      <div id="menu-laterale" class="collapse navbar-collapse p-0">
+        <ul>
+          {% for link in page.sidebar_links %}
+            <li>
+              <a href="{{ link.url | relative_url }}">{{ link.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
   </div>
-</article>
+
+  <!-- Contenuto -->
+  <main class="content">
+    <h2>{{ page.title }}</h2>
+    {{ content }}
+  </main>
+</div>
