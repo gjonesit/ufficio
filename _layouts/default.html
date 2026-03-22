@@ -139,14 +139,6 @@
       transform: translateY(-5px);
     }
 
-    /* Footer */
-    footer {
-      background: #7a1b7a;
-      color: white;
-      padding: 40px 0;
-      text-align: center;
-    }
-
     @media (max-width: 991px) {
       .menu {
         margin-top: 15px;
@@ -203,23 +195,45 @@
 {{ content }}
 
   
-<div class="container">
-   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-body-secondary">© 2025 Company, Inc</p>
-      <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" aria-label="Bootstrap">
-         <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-            <use xlink:href="#bootstrap"></use>
-         </svg>
-      </a>
-      <ul class="nav col-md-4 justify-content-end">
-         <li class="nav-item"><a href="{{ site.url }}//" class="nav-link px-2 text-body-secondary">Home</a></li>
-         <li class="nav-item"><a href="{{ site.url }}//" class="nav-link px-2 text-body-secondary">Features</a></li>
-         <li class="nav-item"><a href="{{ site.url }}//" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-         <li class="nav-item"><a href="{{ site.url }}//" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-         <li class="nav-item"><a href="{{ site.url }}//" class="nav-link px-2 text-body-secondary">About</a></li>
-      </ul>
-   </footer>
-</div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4 mb-3">
+        <h5>Ufficio di Gabriel Jones</h5>
+        <p>Sito istituzionale, attività, progetti e archivio documentale.</p>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <h5>Link</h5>
+        <ul class="footer-links">
+          <li><a href="{{ site.url }}/">Home</a></li>
+          <li><a href="{{ site.url }}/about/">About</a></li>
+          <li><a href="{{ site.url }}/projects/">Progetti</a></li>
+          <li><a href="{{ site.url }}/archivio/">Archivio</a></li>
+          <li><a href="{{ site.url }}/foia/">FOIA</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <h5>Contatti</h5>
+        <p>
+          Sito: gabrieljones.it<br>
+          Email: info@gabrieljones.it
+        </p>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="text-center">
+      <p class="mb-0">© 2026 Gabriel Jones — Tutti i diritti riservati</p>
+    </div>
+  </div>
+</footer>
+
+
   
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
