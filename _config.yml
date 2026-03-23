@@ -24,8 +24,8 @@ description:
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "/ufficio.gabrieljones.it/" # the subpath of your site, e.g. /blog
-url: "https://gabrielmatteojones.github.io/ufficio.gabrieljones.it/" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/gabrieljones.it/" # the subpath of your site, e.g. /blog
+url: "https://gjones-it.github.io/gabrieljones.it/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 evidenza: https://gabrielmatteojones.github.io/desk/polostretto.png
