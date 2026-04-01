@@ -2,14 +2,40 @@
 layout: default
 ---
 
-<article class="post">
-  <h1>{{ page.title }}</h1>
+<section class="py-5">
+    <div class="container">
 
-  <div class="entry">
-    {{ content }}
-  </div>
+        <div class="col-12 mt-5">
+            <div class="post-box" style="padding: 50px;">
 
-  <div class="date">
-    Written on {{ page.date | date: "%B %e, %Y" }}
-  </div>
-</article>
+                <!-- META -->
+                <strong class="text-danger small" style="letter-spacing: 2px; text-transform: uppercase;">
+                    {% if page.tags %}
+                        {% for tag in page.tags %}
+                            #{{ tag }}
+                        {% endfor %}
+                    {% endif %}
+                </strong>
+
+                <!-- TITOLO -->
+                <h1 class="mt-3 fw-bold color-philly display-5" style="font-family: 'Montserrat', sans-serif;">
+                    {{ page.title }}
+                </h1>
+
+                <!-- DATA -->
+                <p class="text-muted mt-2">
+                    {{ page.date | date: "%d %B %Y" }}
+                </p>
+
+                <!-- CONTENUTO -->
+                <div class="mt-4 fs-5 text-muted">
+                    {{ content }}
+                </div>
+
+            <p>Dubbi?<a class="nav-link btn ms-xl-2 px-3 py-1 mt-1 mt-xl-0" href="/contacts/" style="border: 1px solid var(--philly-blue); color:var(--philly-blue)!important; font-size:12px">Contattaci</a></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
