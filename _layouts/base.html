@@ -1,18 +1,249 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  {% include stili.html %}
-  {% include script.html %}
-  <title>{{ page.title }}</title>
-  </head>
-  <body>
-  {% include header.html %}
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The School District of Philadelphia | Gabriel Jones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --philly-blue: #002d62;
+            --philly-light-blue: #002d62; /* Sostituito l'azzurro con il blu richiesto */
+            --accent-red: #da291c;
+            --top-bar-bg: #f8f9fa;
+            --nav-text: #333;
+        }
 
-  <!-- {% include hero.html %}-->
-  <br>
-<div id="main" role="main" class="container">
-{{ content }}    
-</div>
+        body { font-family: 'Open Sans', sans-serif; background-color: #fff; color: #333; }
+        h1, h2, h3, h4, .logo-text { font-family: 'Montserrat', sans-serif; }
+
+        /* Override Bootstrap Primary */
+        .text-primary { color: var(--philly-blue) !important; }
+
+        /* --- TOP UTILITY BAR --- */
+        .top-utility-bar { 
+            background-color: var(--top-bar-bg); 
+            font-size: 11px; 
+            border-bottom: 1px solid #e0e0e0;
+            letter-spacing: 0.3px;
+        }
+        .top-utility-bar a { color: #666; text-decoration: none; padding: 0 12px; border-right: 1px solid #d0d0d0; font-weight: 600; }
+        .top-utility-bar a:last-child { border-right: none; }
+        .top-utility-bar a:hover { color: var(--philly-blue); }
+
+        /* --- HEADER / LOGO --- */
+        .navbar { padding: 0.8rem 0; }
+        .logo-small { 
+            font-size: 10px; 
+            font-weight: 700; 
+            color: var(--philly-blue); 
+            letter-spacing: 0.8px; 
+            display: block;
+            margin-bottom: -2px;
+        }
+        .logo-large { 
+            font-size: 22px; 
+            font-weight: 300; 
+            color: var(--philly-blue); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-link { 
+            color: var(--nav-text) !important; 
+            font-weight: 600; 
+            font-size: 13.5px; 
+            padding: 0.5rem 12px !important;
+            transition: color 0.2s;
+        }
+        .nav-link:hover { color: var(--philly-blue) !important; }
+        .dropdown-toggle::after { 
+            border-top: 0.25em solid var(--philly-blue);
+            vertical-align: middle;
+            margin-left: 6px;
+        }
+        .dropdown-menu { 
+            border-radius: 0; 
+            border: none; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            border-top: 3px solid var(--philly-blue);
+            padding: 10px 0;
+        }
+        .dropdown-item { font-size: 13px; font-weight: 600; padding: 8px 20px; color: var(--philly-blue); }
+        .dropdown-item:hover { background-color: var(--top-bar-bg); }
+
+        /* --- HERO --- */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 45, 98, 0.95) 0%, rgba(0, 26, 58, 0.95) 100%), 
+                        url('https://www.transparenttextures.com/patterns/cubes.png');
+            padding: 100px 0; color: white;
+        }
+        .hero-badge {
+            background: #000c1d; padding: 40px 60px; border-left: 10px solid var(--accent-red); display: inline-block;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        .section-header { border-bottom: 2px solid #eee; margin-bottom: 40px; padding-bottom: 15px; }
+        .section-title { color: var(--philly-blue); font-weight: 700; margin: 0; }
+        
+        /* Aree Tematiche */
+        .areas-section { background-color: var(--philly-blue); color: white; padding: 80px 0; }
+        .area-card { 
+            border: 3px solid rgba(255,255,255,0.15); 
+            padding: 40px 20px; 
+            transition: all 0.3s; 
+            height: 100%;
+            cursor: default;
+        }
+        .area-card:hover { background: rgba(255,255,255,0.08); border-color: var(--accent-red); }
+        .area-card h3 { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+
+        /* Progetti */
+        .project-card { 
+            background: #fff;
+            border: 1px solid #f0f0f0; 
+            padding: 30px; 
+            border-left: 6px solid var(--philly-blue); 
+            height: 100%; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+        }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+        /* Post Box */
+        .post-box { 
+            border: 2px solid var(--philly-blue); 
+            padding: 30px; 
+            background: white; 
+            position: relative; 
+            z-index: 1;
+        }
+        .post-box::after { 
+            content: ""; position: absolute; top: 10px; left: 10px; width: 100%; height: 100%; 
+            border: 2px solid var(--accent-red); z-index: -1; 
+        }
+        .color-philly { color: var(--philly-blue); }
+
+        /* Pulsanti News (da Viola a Rosso) */
+        .btn-news {
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            border-radius: 0;
+            padding: 5px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        .btn-news:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer { background-color: #001a3a; color: #b0c4de; padding: 80px 0 30px; }
+        footer h5 { color: white; font-weight: 700; margin-bottom: 25px; font-size: 1rem; }
+        footer ul { list-style: none; padding: 0; }
+        footer ul li { margin-bottom: 12px; font-size: 14px; }
+        footer a { color: #b0c4de; text-decoration: none; }
+        footer a:hover { color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="top-utility-bar d-none d-lg-block">
+        <div class="container d-flex justify-content-end align-items-center py-2">
+            <a href="https://pannel.ufficio.gabrieljones.it/dashboard/">Dashboard</a>
+            <a href="/calendar/">CALENDAR</a>
+            <a href="/contacts/">Contacts</a>
+            <a href="https://ufficio.gabrieljones.it">The Office</a>
+            <a href="https://amministrazione.gabrieljones.it">EMPLOYEES</a>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-xl navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/256x256/0ac34be6f0627698f7b44d1c81a9bd08" height="40" class="me-3" alt="Philly Flag">
+                <div>
+                    <span class="logo-small">Ciao sono,</span>
+                    <span class="logo-large">Gabriel Jones</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/fi23/" data-bs-toggle="dropdown">Infanzia</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/fi23/oratorio/">Oratorio</a></li>
+                            <li><a class="dropdown-item" href="/fi23/grest/">Grest</a></li>
+                            <li><a class="dropdown-item" href="/fi23/mangialibri/">Mangia Libri Fontanafredda</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/progetti/" data-bs-toggle="dropdown">Progetti</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/progetti/arenagiovani/">Arena Giovani</a></li>
+                            <li><a class="dropdown-item" href="/progetti/upid/">UPID</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/OPAC/" data-bs-toggle="dropdown">OPAC</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/OPAC/">OPAC</a></li>
+                            <li><a class="dropdown-item" href="/OPAC/about/">About</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/fi23/edu/" data-bs-toggle="dropdown">Edu</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/fi23/edu/risorse/">Risorse Edu</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/gra/" data-bs-toggle="dropdown">Grafica</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/gra/">Grafica</a></li>
+                            <li><a class="dropdown-item" href="/gra/portfolio/">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="/gra/servizi/">Servizi</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">I miei siti</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://org.gabrieljones.it">I progetti</a></li>
+                            <li><a class="dropdown-item" href="https://fi23.gabrieljones.it">Infanzia</a></li>
+                            <li><a class="dropdown-item" href="https://progetti.gabrieljones.it">Progetti</a></li>
+                            <li><a class="dropdown-item" href="https://opac.gabrieljones.it">BiblioGab</a></li>
+                            <li><a class="dropdown-item" href="https://blogs.gabrieljones.it">Last News</a></li>
+                            <li><a class="dropdown-item" href="https://FOIA.gabrieljones.it">FOIA</a></li>
+                            <li><a class="dropdown-item" href="https://pannel.ufficio.gabrieljones.it">Mail System</a></li>
+                            <li><a class="dropdown-item" href="https://agfo.gabrieljones.it">Arena Giovani</a></li>
+                            <li><a class="dropdown-item" href="https://upid.gabrieljones.it">UPID</a></li>
+                        </ul>
+                    </li>
+                    <!--<li class="nav-item"><a class="nav-link" href="#">Careers</a></li>-->
+                    <li class="nav-item"><a class="nav-link btn ms-xl-2 px-3 py-1 mt-1 mt-xl-0" href="#" style="border: 1px solid var(--philly-blue); color:var(--philly-blue)!important; font-size:12px">LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section" style="cursor:pointer;">
+        <div class="container">
+            <div class="hero-badge">
+                <p class="mb-1 fs-4 fw-light opacity-75">Ciao sono,</p>
+                <h1 class="display-3 fw-bold m-0">Gabriel Jones</h1>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -20,25 +251,54 @@
 
 
 
-    <!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
-<script type="text/javascript" src="//www.termsfeed.com/public/cookie-consent/4.2.0/cookie-consent.js" charset="UTF-8"></script>
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"standalone","consent_type":"express","palette":"dark","language":"it","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_privacy_policy_url":"https://ufficio.gabrieljones.it/privacyconsents/","website_name":"Gabriel Jones (gabrieljones.it)"});
-});
-</script>
 
-<noscript>Free cookie consent management tool by <a href="https://www.termsfeed.com/">TermsFeed Generator</a></noscript>
-<!-- End Cookie Consent by TermsFeed https://www.TermsFeed.com -->
+{{ content }}
 
 
 
 
 
-<!-- Below is the link that users can use to open Preferences Center to change their preferences. Do not modify the ID parameter. Place it where appropriate, style it as needed. -->
 
-<a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-    
+
+    <footer>
+        <div class="container">
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <h5 class="text-uppercase" style="letter-spacing:1px">Gabriel Jones - Animazione</h5>
+                    <p class="small pe-lg-5 opacity-75">Beh che dire, nel dubbio, ciao.</p>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>RISORSE</h5>
+                    <ul>
+                        <li><a href="#">Libretto Giochi</a></li>
+                        <li><a href="#">Attività</a></li>
+                        <li><a href="#">Progetti</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>CONTATTI</h5>
+                    <ul>
+                        <li><a href="#">Email</a></li>
+                        <li><a href="#">Ufficio</a></li>
+                        <li><a href="#">Oratorio</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>DISTRETTO</h5>
+                    <ul>
+                        <li><a href="#">Documenti FOIA</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Staff Directory</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-5 pt-4 text-center small opacity-50">
+                &copy; 2026 gabrieljones.it. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
