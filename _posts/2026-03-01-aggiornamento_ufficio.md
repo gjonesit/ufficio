@@ -3,7 +3,7 @@ layout: post
 title: "Sviluppo ufficio digitale di Gabriel Jones"
 date: 2026-03-01
 tags: [featured, ufficiogabrieljones, news]
-permalink: /ufficio/gabrieljones/
+permalink: /gabrieljones/
 ---
 
 A marzo 2026 è giunto a scadenza il contratto biennale relativo alla fornitura del gestionale utilizzato per amministrare siti, documenti e progetti di Gabriel Jones.
