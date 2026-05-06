@@ -1,0 +1,420 @@
+---
+layout: base
+title: Area Personale
+permalink: /user/
+---
+
+<section class="personal-area">
+
+    <style>
+        .personal-area{
+            --primary:#0047FF;
+            --dark:#07111f;
+            --accent:#E81C23;
+            --light:#f5f8ff;
+            --white:#ffffff;
+            --gray:#7a8594;
+
+            font-family:'Outfit',sans-serif;
+            padding:40px;
+            border-radius:35px;
+            background:
+            radial-gradient(circle at top left,#0047ff25,transparent 30%),
+            radial-gradient(circle at bottom right,#e81c2320,transparent 30%),
+            #f7faff;
+        }
+
+        .pa-grid{
+            display:grid;
+            grid-template-columns:320px 1fr;
+            gap:30px;
+        }
+
+        .pa-sidebar{
+            background:rgba(255,255,255,0.7);
+            backdrop-filter:blur(18px);
+            border-radius:30px;
+            padding:30px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.06);
+        }
+
+        .pa-profile{
+            text-align:center;
+        }
+
+        .pa-profile img{
+            width:140px;
+            height:140px;
+            border-radius:50%;
+            object-fit:cover;
+            border:5px solid white;
+            box-shadow:0 15px 40px rgba(0,71,255,0.2);
+        }
+
+        .pa-profile h2{
+            margin-top:20px;
+            font-size:30px;
+            font-weight:900;
+            color:var(--dark);
+        }
+
+        .pa-profile span{
+            color:var(--gray);
+            font-size:15px;
+        }
+
+        .pa-badge{
+            margin-top:18px;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            background:#e8fff2;
+            color:#00a35c;
+            padding:10px 18px;
+            border-radius:100px;
+            font-size:13px;
+            font-weight:700;
+        }
+
+        .pa-menu{
+            margin-top:35px;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+        }
+
+        .pa-menu a{
+            text-decoration:none;
+            color:var(--dark);
+            padding:16px 18px;
+            border-radius:18px;
+            font-weight:700;
+            transition:0.3s;
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+
+        .pa-menu a:hover{
+            background:var(--primary);
+            color:white;
+            transform:translateX(5px);
+        }
+
+        .pa-content{
+            display:flex;
+            flex-direction:column;
+            gap:25px;
+        }
+
+        .pa-hero{
+            position:relative;
+            overflow:hidden;
+            border-radius:35px;
+            padding:50px;
+            min-height:260px;
+            background:
+            linear-gradient(135deg,rgba(0,71,255,.95),rgba(0,21,41,.96)),
+            url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1800&auto=format&fit=crop');
+            background-size:cover;
+            color:white;
+            box-shadow:0 20px 50px rgba(0,0,0,0.08);
+        }
+
+        .pa-hero::after{
+            content:'';
+            position:absolute;
+            width:350px;
+            height:350px;
+            background:rgba(255,255,255,0.05);
+            border-radius:50%;
+            top:-120px;
+            right:-120px;
+        }
+
+        .pa-hero h1{
+            position:relative;
+            z-index:2;
+            font-size:58px;
+            line-height:0.95;
+            font-weight:900;
+            letter-spacing:-3px;
+            max-width:650px;
+        }
+
+        .pa-hero p{
+            position:relative;
+            z-index:2;
+            margin-top:20px;
+            max-width:600px;
+            font-size:18px;
+            line-height:1.7;
+            opacity:0.9;
+        }
+
+        .pa-cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+        }
+
+        .pa-card{
+            background:rgba(255,255,255,0.75);
+            backdrop-filter:blur(14px);
+            border-radius:28px;
+            padding:30px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.05);
+            transition:0.3s;
+        }
+
+        .pa-card:hover{
+            transform:translateY(-6px);
+        }
+
+        .pa-icon{
+            width:60px;
+            height:60px;
+            border-radius:18px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:linear-gradient(135deg,var(--primary),#2673ff);
+            color:white;
+            font-size:24px;
+            margin-bottom:20px;
+        }
+
+        .pa-card h3{
+            font-size:22px;
+            margin-bottom:10px;
+            color:var(--dark);
+        }
+
+        .pa-card p{
+            color:var(--gray);
+            line-height:1.7;
+        }
+
+        .pa-activity{
+            background:white;
+            border-radius:30px;
+            padding:35px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        .pa-activity h2{
+            font-size:34px;
+            margin-bottom:25px;
+            color:var(--dark);
+        }
+
+        .pa-item{
+            display:flex;
+            align-items:center;
+            gap:18px;
+            padding:18px 0;
+            border-bottom:1px solid #edf1f7;
+        }
+
+        .pa-item:last-child{
+            border-bottom:none;
+        }
+
+        .pa-item-icon{
+            width:50px;
+            height:50px;
+            border-radius:16px;
+            background:var(--light);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:var(--primary);
+            font-size:20px;
+        }
+
+        .pa-item h4{
+            font-size:17px;
+            color:var(--dark);
+            margin-bottom:5px;
+        }
+
+        .pa-item span{
+            color:var(--gray);
+            font-size:14px;
+        }
+
+        @media(max-width:950px){
+
+            .pa-grid{
+                grid-template-columns:1fr;
+            }
+
+            .pa-hero h1{
+                font-size:42px;
+            }
+
+        }
+    </style>
+
+    <div class="pa-grid">
+
+        <aside class="pa-sidebar">
+
+            <div class="pa-profile">
+
+                <img src="https://i.pravatar.cc/300?img=12">
+
+                <h2>Gabriel Jones</h2>
+
+                <span>Educatore · Developer · Designer</span>
+
+                <div class="pa-badge">
+                    <i class="fas fa-circle-check"></i>
+                    Profilo verificato
+                </div>
+
+            </div>
+
+            <div class="pa-menu">
+
+                <a href="#">
+                    <i class="fas fa-house"></i>
+                    Dashboard
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    Profilo
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-folder-open"></i>
+                    Progetti
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-newspaper"></i>
+                    Articoli
+                </a>
+
+                <a href="#">
+                    <i class="fas fa-gear"></i>
+                    Impostazioni
+                </a>
+
+            </div>
+
+        </aside>
+
+        <div class="pa-content">
+
+            <div class="pa-hero">
+
+                <h1>
+                    Area personale<br>
+                    riservata.
+                </h1>
+
+                <p>
+                    Benvenuto nel pannello dell'Ufficio Gabriel Jones. 
+                    Gestisci contenuti, archivi, progetti digitali e attività personali.
+                </p>
+
+            </div>
+
+            <div class="pa-cards">
+
+                <div class="pa-card">
+
+                    <div class="pa-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+
+                    <h3>Statistiche</h3>
+
+                    <p>
+                        Controlla accessi, visualizzazioni e attività recenti.
+                    </p>
+
+                </div>
+
+                <div class="pa-card">
+
+                    <div class="pa-icon">
+                        <i class="fas fa-pen-ruler"></i>
+                    </div>
+
+                    <h3>Design Studio</h3>
+
+                    <p>
+                        Gestisci progetti grafici, mockup e contenuti visual.
+                    </p>
+
+                </div>
+
+                <div class="pa-card">
+
+                    <div class="pa-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+
+                    <h3>Archivio</h3>
+
+                    <p>
+                        Accesso rapido a documenti, media e contenuti storici.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="pa-activity">
+
+                <h2>Attività recenti</h2>
+
+                <div class="pa-item">
+
+                    <div class="pa-item-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+
+                    <div>
+                        <h4>Nuovo aggiornamento sito web</h4>
+                        <span>Pubblicato 2 ore fa</span>
+                    </div>
+
+                </div>
+
+                <div class="pa-item">
+
+                    <div class="pa-item-icon">
+                        <i class="fas fa-photo-film"></i>
+                    </div>
+
+                    <div>
+                        <h4>Upload progetto grafico</h4>
+                        <span>Ieri · 22:14</span>
+                    </div>
+
+                </div>
+
+                <div class="pa-item">
+
+                    <div class="pa-item-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+
+                    <div>
+                        <h4>Archivio aggiornato</h4>
+                        <span>3 giorni fa</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
