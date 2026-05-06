@@ -216,13 +216,12 @@
         netlifyIdentity.on('logout', () => updateUserInfo(null));
     </script>
 
-
-<!--
+    
     <script>
-                // Redirect se il dominio NON è jonesoffice.it
+                // Redirect se il dominio NON è 18f.it
 
 (function () {
-    const dominioConsentito = "jonesoffice.it";
+    const dominioConsentito = "18f.it";
 
     // Ottiene hostname attuale
     const host = window.location.hostname.toLowerCase();
@@ -234,7 +233,7 @@
 
     // Se non valido → redirect
     if (!valido) {
-        window.location.href = "https://jonesoffice.it";
+        window.location.href = "https://18f.it";
     }
 })();
     </script> -->
