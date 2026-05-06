@@ -214,6 +214,27 @@
             netlifyIdentity.close();
         });
         netlifyIdentity.on('logout', () => updateUserInfo(null));
+
+
+
+        // Redirect se il dominio NON è jonesoffice.it
+
+(function () {
+    const dominioConsentito = "jonesoffice.it";
+
+    // Ottiene hostname attuale
+    const host = window.location.hostname.toLowerCase();
+
+    // Controlla dominio principale e sottodomini
+    const valido =
+        host === dominioConsentito ||
+        host.endsWith("." + dominioConsentito);
+
+    // Se non valido → redirect
+    if (!valido) {
+        window.location.href = "https://jonesoffice.it";
+    }
+})();
     </script>
 
 </body>
