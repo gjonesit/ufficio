@@ -214,10 +214,12 @@
             netlifyIdentity.close();
         });
         netlifyIdentity.on('logout', () => updateUserInfo(null));
+    </script>
 
 
-
-        // Redirect se il dominio NON è jonesoffice.it
+<!--
+    <script>
+                // Redirect se il dominio NON è jonesoffice.it
 
 (function () {
     const dominioConsentito = "jonesoffice.it";
@@ -235,7 +237,6 @@
         window.location.href = "https://jonesoffice.it";
     }
 })();
-    </script>
-
+    </script> -->
 </body>
 </html>
