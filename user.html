@@ -3,391 +3,505 @@ layout: base
 title: Area Personale
 permalink: /user/
 ---
+<section class="dashboard-area">
 
-<!-- =========================
-     AVATAR CUSTOMIZER PANEL
-========================= -->
+    <div class="dashboard-hero">
+        <div>
+            <span class="dashboard-label">AREA RISERVATA</span>
+            <h1 id="welcome-name">Benvenuto.</h1>
+            <p>
+                Gestisci il tuo profilo, l'immagine account e accedi rapidamente
+                agli strumenti personali del sistema Gabriel Jones.
+            </p>
+        </div>
 
-<div class="gj-avatar-customizer">
+        <div class="dashboard-avatar-box">
+            <img id="profile-avatar"
+                 src="https://i.pravatar.cc/300?img=12"
+                 alt="Avatar utente">
+        </div>
+    </div>
 
-    <div class="gj-customizer-header">
+    <div class="dashboard-grid">
 
-        <h2>
-            <i class="fas fa-palette"></i>
-            Personalizzazione Avatar
-        </h2>
+        <div class="dashboard-card">
+            <div class="card-top">
+                <i class="fas fa-id-badge"></i>
+                <span>Profilo</span>
+            </div>
 
-        <p>
-            Personalizza la tua immagine profilo
-            con effetti moderni e stile premium.
-        </p>
+            <h3>Dati account</h3>
+
+            <div class="profile-info">
+                <div>
+                    <small>Email</small>
+                    <strong id="user-email">...</strong>
+                </div>
+
+                <div>
+                    <small>ID Utente</small>
+                    <strong id="user-id">...</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-top">
+                <i class="fas fa-image"></i>
+                <span>Avatar</span>
+            </div>
+
+            <h3>Immagine profilo</h3>
+
+            <input type="text"
+                   id="avatar-input"
+                   placeholder="https://immagine.jpg">
+
+            <button onclick="saveAvatar()">
+                <i class="fas fa-save"></i>
+                Salva Avatar
+            </button>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-top">
+                <i class="fas fa-bolt"></i>
+                <span>Quick Access</span>
+            </div>
+
+            <h3>Strumenti</h3>
+
+            <div class="quick-links">
+                <a href="/archives/">
+                    <i class="fas fa-box-archive"></i>
+                    Archives
+                </a>
+
+                <a href="/grafica/">
+                    <i class="fas fa-palette"></i>
+                    Grafica
+                </a>
+
+                <a href="/">
+                    <i class="fas fa-house"></i>
+                    Homepage
+                </a>
+            </div>
+        </div>
+
+        <div class="dashboard-card logout-card">
+            <div class="card-top">
+                <i class="fas fa-shield"></i>
+                <span>Sicurezza</span>
+            </div>
+
+            <h3>Sessione attiva</h3>
+
+            <p>
+                Sei autenticato tramite Netlify Identity.
+            </p>
+
+            <button class="logout-btn"
+                    onclick="netlifyIdentity.logout()">
+
+                <i class="fas fa-right-from-bracket"></i>
+                Logout
+
+            </button>
+        </div>
 
     </div>
 
-    <div class="gj-customizer-grid">
-
-        <!-- BORDER RADIUS -->
-
-        <div class="gj-control">
-
-            <label>
-                Angoli Avatar
-            </label>
-
-            <input
-                type="range"
-                min="0"
-                max="80"
-                value="32"
-                id="radius-slider">
-
-        </div>
-
-        <!-- ZOOM -->
-
-        <div class="gj-control">
-
-            <label>
-                Zoom Immagine
-            </label>
-
-            <input
-                type="range"
-                min="1"
-                max="1.5"
-                step="0.01"
-                value="1"
-                id="zoom-slider">
-
-        </div>
-
-        <!-- ROTATION -->
-
-        <div class="gj-control">
-
-            <label>
-                Rotazione
-            </label>
-
-            <input
-                type="range"
-                min="-20"
-                max="20"
-                value="0"
-                id="rotate-slider">
-
-        </div>
-
-        <!-- BRIGHTNESS -->
-
-        <div class="gj-control">
-
-            <label>
-                Luminosità
-            </label>
-
-            <input
-                type="range"
-                min="50"
-                max="150"
-                value="100"
-                id="brightness-slider">
-
-        </div>
-
-    </div>
-
-    <!-- FILTERS -->
-
-    <div class="gj-filter-row">
-
-        <button onclick="setFilter('none')">
-            Normale
-        </button>
-
-        <button onclick="setFilter('grayscale(1)')">
-            B/N
-        </button>
-
-        <button onclick="setFilter('sepia(1)')">
-            Vintage
-        </button>
-
-        <button onclick="setFilter('contrast(1.4)')">
-            Contrast
-        </button>
-
-        <button onclick="setFilter('saturate(1.8)')">
-            Pop
-        </button>
-
-    </div>
-
-</div>
+</section>
 
 <style>
-
-/* =========================
-   CUSTOMIZER PANEL
-========================= */
-
-.gj-avatar-customizer{
-
-    margin-top: 40px;
-
-    background: #fff;
-
-    border-radius: 32px;
-
-    padding: 40px;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,0.06);
-
+     .dashboard-area {
+    padding: 180px 5% 100px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-/* HEADER */
-
-.gj-customizer-header{
-
-    margin-bottom: 35px;
-
-}
-
-.gj-customizer-header h2{
-
-    font-size: 34px;
-
-    font-weight: 900;
-
-    color: var(--dark);
-
-    margin-bottom: 10px;
-
-}
-
-.gj-customizer-header p{
-
-    color: #666;
-
-    line-height: 1.7;
-
-}
-
-/* GRID */
-
-.gj-customizer-grid{
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap: 25px;
-
-}
-
-/* CONTROL */
-
-.gj-control{
-
+.dashboard-hero {
     background:
-        #f7f9fc;
-
-    padding: 25px;
-
-    border-radius: 22px;
-
-}
-
-.gj-control label{
-
-    display: block;
-
-    margin-bottom: 15px;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-
-    color: var(--primary);
-
-}
-
-.gj-control input{
-
-    width: 100%;
-
-    cursor: pointer;
-
-}
-
-/* FILTERS */
-
-.gj-filter-row{
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 15px;
-
-    margin-top: 35px;
-
-}
-
-.gj-filter-row button{
-
-    border: none;
-
-    background: var(--dark);
-
+        linear-gradient(
+            135deg,
+            rgba(0,71,255,0.95),
+            rgba(0,21,41,0.95)
+        );
+    border-radius: 30px;
+    padding: 60px;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
 
-    padding: 14px 20px;
+.dashboard-hero::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    top: -150px;
+    right: -120px;
+}
 
-    border-radius: 14px;
+.dashboard-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
 
-    cursor: pointer;
+.dashboard-hero h1 {
+    font-size: clamp(40px, 6vw, 70px);
+    line-height: 1;
+    font-weight: 900;
+    margin: 15px 0;
+    letter-spacing: -3px;
+}
 
-    font-weight: 700;
+.dashboard-hero p {
+    max-width: 600px;
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.9;
+}
 
-    font-family: inherit;
+.dashboard-avatar-box {
+    min-width: 180px;
+}
 
+.dashboard-avatar-box img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid rgba(255,255,255,0.2);
+    box-shadow: 0 30px 50px rgba(0,0,0,0.25);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.06);
     transition: var(--transition);
-
+    border: 1px solid rgba(0,0,0,0.04);
 }
 
-.gj-filter-row button:hover{
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
 
-    transform:
-        translateY(-4px);
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
+.dashboard-card h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-info small {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 800;
+    opacity: 0.5;
+    margin-bottom: 5px;
+}
+
+.profile-info strong {
+    font-size: 16px;
+    word-break: break-word;
+}
+
+#avatar-input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(0,0,0,0.08);
+    font-family: inherit;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.dashboard-card button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dashboard-card button:hover {
+    transform: translateY(-2px);
+    background: var(--dark);
+}
+
+.quick-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.quick-links a {
+    background: #f5f7fb;
+    padding: 16px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 700;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quick-links a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateX(5px);
+}
+
+.logout-card {
     background:
-        var(--primary);
+        linear-gradient(
+            135deg,
+            rgba(232,28,35,0.05),
+            rgba(0,0,0,0)
+        );
+}
+
+.logout-btn {
+    margin-top: 20px;
+    background: var(--accent) !important;
+}
+
+@media (max-width: 900px) {
+
+    .dashboard-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-avatar-box img {
+        width: 140px;
+        height: 140px;
+    }
+
+}
+</style>
+
+<script>
+
+const currentUser =
+    netlifyIdentity.currentUser();
+
+
+// ==========================
+// REDIRECT IF NOT LOGGED
+// ==========================
+
+if (!currentUser) {
+
+    window.location.href = "/";
 
 }
 
-/* MOBILE */
 
-@media(max-width:700px){
+// ==========================
+// LOAD USER DATA
+// ==========================
 
-    .gj-customizer-grid{
+function loadDashboard(user) {
 
-        grid-template-columns: 1fr;
+    if (!user) return;
+
+    const name =
+        user.user_metadata?.full_name ||
+        user.email.split('@')[0];
+
+    const avatar =
+        localStorage.getItem(
+            'gj_avatar_' + user.id
+        ) ||
+
+        user.user_metadata?.avatar_url ||
+
+        user.data?.avatar_url ||
+
+        'https://i.pravatar.cc/300?img=12';
+
+
+    // NAME
+    document.getElementById(
+        'welcome-name'
+    ).innerHTML =
+        `Ciao, ${name}.`;
+
+    // EMAIL
+    document.getElementById(
+        'user-email'
+    ).textContent =
+        user.email;
+
+    // ID
+    document.getElementById(
+        'user-id'
+    ).textContent =
+        user.id;
+
+    // AVATAR
+    document.getElementById(
+        'profile-avatar'
+    ).src =
+        avatar;
+
+    // INPUT
+    document.getElementById(
+        'avatar-input'
+    ).value =
+        avatar;
+
+}
+
+
+// ==========================
+// SAVE AVATAR
+// ==========================
+
+async function saveAvatar() {
+
+    const input =
+        document.getElementById(
+            'avatar-input'
+        );
+
+    const url =
+        input.value.trim();
+
+    if (!url) {
+
+        alert('Inserisci una immagine valida.');
+
+        return;
+
+    }
+
+    const user =
+        netlifyIdentity.currentUser();
+
+    try {
+
+        await user.update({
+
+            data: {
+
+                avatar_url: url
+
+            }
+
+        });
+
+        localStorage.setItem(
+            'gj_avatar_' + user.id,
+            url
+        );
+
+        document.getElementById(
+            'profile-avatar'
+        ).src = url;
+
+        alert('Avatar aggiornato.');
+
+    }
+
+    catch(err) {
+
+        console.error(err);
+
+        alert('Errore durante il salvataggio.');
 
     }
 
 }
 
-</style>
 
-<script>
+// ==========================
+// EVENTS
+// ==========================
 
-/* =========================
-   AVATAR CUSTOMIZER
-========================= */
-
-const profileAvatar =
-    document.getElementById(
-        'profile-avatar'
-    );
-
-const radiusSlider =
-    document.getElementById(
-        'radius-slider'
-    );
-
-const zoomSlider =
-    document.getElementById(
-        'zoom-slider'
-    );
-
-const rotateSlider =
-    document.getElementById(
-        'rotate-slider'
-    );
-
-const brightnessSlider =
-    document.getElementById(
-        'brightness-slider'
-    );
-
-/* CURRENT FILTER */
-
-let currentFilter = 'none';
-
-/* =========================
-   APPLY STYLES
-========================= */
-
-function applyAvatarStyle(){
-
-    const radius =
-        radiusSlider.value;
-
-    const zoom =
-        zoomSlider.value;
-
-    const rotate =
-        rotateSlider.value;
-
-    const brightness =
-        brightnessSlider.value;
-
-    profileAvatar.style.borderRadius =
-        radius + 'px';
-
-    profileAvatar.style.transform = `
-        scale(${zoom})
-        rotate(${rotate}deg)
-    `;
-
-    profileAvatar.style.filter = `
-        brightness(${brightness}%)
-        ${currentFilter}
-    `;
-
-}
-
-/* =========================
-   FILTERS
-========================= */
-
-function setFilter(filter){
-
-    currentFilter = filter;
-
-    applyAvatarStyle();
-
-}
-
-/* =========================
-   EVENTS
-========================= */
-
-radiusSlider.addEventListener(
-    'input',
-    applyAvatarStyle
+netlifyIdentity.on(
+    'init',
+    user => loadDashboard(user)
 );
 
-zoomSlider.addEventListener(
-    'input',
-    applyAvatarStyle
+netlifyIdentity.on(
+    'login',
+    user => loadDashboard(user)
 );
 
-rotateSlider.addEventListener(
-    'input',
-    applyAvatarStyle
+netlifyIdentity.on(
+    'logout',
+    () => {
+
+        window.location.href = "/";
+
+    }
 );
 
-brightnessSlider.addEventListener(
-    'input',
-    applyAvatarStyle
+
+// ==========================
+// AUTO INIT
+// ==========================
+
+window.addEventListener(
+    'DOMContentLoaded',
+    () => {
+
+        loadDashboard(
+            currentUser
+        );
+
+    }
 );
 
 </script>
