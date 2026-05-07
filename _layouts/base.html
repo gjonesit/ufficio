@@ -177,166 +177,196 @@
     </main>
 
 <script>
+// =========================
+// HEADER SCROLL EFFECT
+// =========================
 
-    // =========================
-    // HEADER SCROLL EFFECT
-    // =========================
+const header =
+    document.getElementById('main-header');
 
-    const header =
-        document.getElementById('main-header');
+window.addEventListener('scroll', () => {
 
-    window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
 
-        if (window.scrollY > 40) {
+        header.classList.add('scrolled');
 
-            header.classList.add('scrolled');
+    } else {
 
-        } else {
+        header.classList.remove('scrolled');
 
-            header.classList.remove('scrolled');
+    }
 
-        }
-
-    });
-
-
-    // =========================
-    // NETLIFY IDENTITY
-    // =========================
-
-    const userControl =
-        document.getElementById('user-control');
-
-    const avatar =
-        document.getElementById('profile-avatar');
+});
 
 
-    // =========================
-    // UPDATE USER INFO
-    // =========================
+// =========================
+// NETLIFY IDENTITY
+// =========================
 
-    const updateUserInfo = (user) => {
+const userControl =
+    document.getElementById('user-control');
 
-        // =====================
-        // USER LOGGED
-        // =====================
+const avatar =
+    document.getElementById('profile-avatar');
 
-        if (user) {
 
-            // USER NAME
-            const name =
-                user.user_metadata?.full_name ||
-                user.email.split('@')[0];
+// =========================
+// UPDATE USER INFO
+// =========================
 
-            // PROFILE IMAGE
-            const profileImage =
-                user.user_metadata?.avatar_url ||
-                'https://i.pravatar.cc/300?img=12';
+const updateUserInfo = (user) => {
 
-            // UPDATE AVATAR
-            if (avatar) {
+    // =====================
+    // USER LOGGED
+    // =====================
 
-                avatar.src = profileImage;
+    if (user) {
 
-            }
+        // USER NAME
+        const name =
+            user.user_metadata?.full_name ||
+            user.email.split('@')[0];
 
-            // UPDATE TOP BAR
-            userControl.innerHTML = `
+        // LOCAL AVATAR
+        const savedAvatar =
+            localStorage.getItem(
+                'gj_avatar_' + user.id
+            );
 
-                <a href="/user/"
-                   style="
-                        color: var(--accent);
-                        font-weight: 900;
-                   ">
+        // PROFILE IMAGE
+        const profileImage =
+            savedAvatar ||
+            user.user_metadata?.avatar_url ||
+            user.data?.avatar_url ||
+            'https://i.pravatar.cc/300?img=12';
 
-                    <i class="fas fa-user-check"></i>
+        // UPDATE AVATAR IMAGE
+        if (avatar) {
 
-                    CIAO, ${name.toUpperCase()}
-
-                </a>
-
-                <a onclick="netlifyIdentity.logout()"
-                   style="
-                        font-size: 9px;
-                        margin-left: 10px;
-                        opacity: 0.6;
-                        cursor: pointer;
-                   ">
-
-                    (LOGOUT)
-
-                </a>
-
-            `;
+            avatar.src = profileImage;
 
         }
 
-        // =====================
-        // USER LOGGED OUT
-        // =====================
-
-        else {
-
-            // DEFAULT AVATAR
-            if (avatar) {
-
-                avatar.src =
-                    'https://i.pravatar.cc/300?img=12';
-
-            }
-
-            // LOGIN BUTTON
-            userControl.innerHTML = `
-
-                <a onclick="netlifyIdentity.open()"
-                   id="auth-link">
-
-                    <i class="fas fa-user-circle"></i>
-
-                    LOGIN
-
-                </a>
-
-            `;
-
-        }
-
-    };
-
-
-    // =========================
-    // SAVE AVATAR
-    // =========================
-
-    function saveAvatar() {
-
-        const input =
+        // AUTOLOAD INPUT VALUE
+        const avatarInput =
             document.getElementById('avatar-input');
 
-        if (!input) return;
+        if (avatarInput) {
 
-        const url = input.value.trim();
-
-        if (!url) {
-
-            alert('Inserisci una URL immagine.');
-
-            return;
+            avatarInput.value = profileImage;
 
         }
 
-        const user =
-            netlifyIdentity.currentUser();
+        // UPDATE TOP BAR
+        userControl.innerHTML = `
 
-        if (!user) {
+            <a href="/user/"
+               style="
+                    color: var(--accent);
+                    font-weight: 900;
+               ">
 
-            alert('Devi essere loggato.');
+                <i class="fas fa-user-check"></i>
 
-            return;
+                CIAO, ${name.toUpperCase()}
+
+            </a>
+
+            <a onclick="netlifyIdentity.logout()"
+               style="
+                    font-size: 9px;
+                    margin-left: 10px;
+                    opacity: 0.6;
+                    cursor: pointer;
+               ">
+
+                (LOGOUT)
+
+            </a>
+
+        `;
+
+    }
+
+    // =====================
+    // USER LOGGED OUT
+    // =====================
+
+    else {
+
+        // DEFAULT AVATAR
+        if (avatar) {
+
+            avatar.src =
+                'https://i.pravatar.cc/300?img=12';
 
         }
 
-        user.update({
+        // RESET INPUT
+        const avatarInput =
+            document.getElementById('avatar-input');
+
+        if (avatarInput) {
+
+            avatarInput.value = '';
+
+        }
+
+        // LOGIN BUTTON
+        userControl.innerHTML = `
+
+            <a onclick="netlifyIdentity.open()"
+               id="auth-link">
+
+                <i class="fas fa-user-circle"></i>
+
+                LOGIN
+
+            </a>
+
+        `;
+
+    }
+
+};
+
+
+// =========================
+// SAVE AVATAR
+// =========================
+
+async function saveAvatar() {
+
+    const input =
+        document.getElementById('avatar-input');
+
+    if (!input) return;
+
+    const url = input.value.trim();
+
+    if (!url) {
+
+        alert('Inserisci una URL immagine.');
+
+        return;
+
+    }
+
+    const user =
+        netlifyIdentity.currentUser();
+
+    if (!user) {
+
+        alert('Devi essere loggato.');
+
+        return;
+
+    }
+
+    try {
+
+        // SAVE ON NETLIFY
+        await user.update({
 
             data: {
 
@@ -344,52 +374,74 @@
 
             }
 
-        }).then(() => {
-
-            // UPDATE IMAGE LIVE
-            if (avatar) {
-
-                avatar.src = url;
-
-            }
-
-            alert('Avatar aggiornato!');
-
-        }).catch((err) => {
-
-            console.error(err);
-
-            alert('Errore durante il salvataggio.');
-
         });
+
+        // SAVE LOCAL
+        localStorage.setItem(
+            'gj_avatar_' + user.id,
+            url
+        );
+
+        // UPDATE LIVE IMAGE
+        if (avatar) {
+
+            avatar.src = url;
+
+        }
+
+        // REFRESH USER DATA
+        updateUserInfo(user);
+
+        alert('Avatar aggiornato con successo!');
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert('Errore durante il salvataggio.');
 
     }
 
+}
 
-    // =========================
-    // NETLIFY EVENTS
-    // =========================
 
-    netlifyIdentity.on('init', user => {
+// =========================
+// NETLIFY EVENTS
+// =========================
 
-        updateUserInfo(user);
+netlifyIdentity.on('init', user => {
 
-    });
+    updateUserInfo(user);
 
-    netlifyIdentity.on('login', user => {
+});
 
-        updateUserInfo(user);
+netlifyIdentity.on('login', user => {
 
-        netlifyIdentity.close();
+    updateUserInfo(user);
 
-    });
+    netlifyIdentity.close();
 
-    netlifyIdentity.on('logout', () => {
+});
 
-        updateUserInfo(null);
+netlifyIdentity.on('logout', () => {
 
-    });
+    updateUserInfo(null);
 
+});
+
+
+// =========================
+// AUTO INIT
+// =========================
+
+window.addEventListener('DOMContentLoaded', () => {
+
+    const user =
+        netlifyIdentity.currentUser();
+
+    updateUserInfo(user);
+
+});
 </script>
 <!--
     <script>
