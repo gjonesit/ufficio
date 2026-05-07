@@ -4,284 +4,10 @@ title: Area Personale
 permalink: /user/
 ---
 
-<section class="gj-user-area">
 
-<style>
-
-.gj-user-area{
-    padding:100px 5%;
-    max-width:1300px;
-    margin:auto;
-}
-
-/* HERO */
-
-.gj-user-hero{
-    position:relative;
-    overflow:hidden;
-    border-radius:22px;
-    background:
-    linear-gradient(rgba(0,21,41,0.78), rgba(0,21,41,0.62)),
-    url('https://gabrieljones.it/ufficio/joneshero.png');
-    background-size:cover;
-    background-position:center;
-    padding:90px 70px;
-    margin-bottom:35px;
-}
-
-.gj-user-hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(90deg, rgba(0,71,255,0.12), transparent);
-}
-
-.gj-user-inner{
-    position:relative;
-    z-index:2;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-    gap:40px;
-}
-
-.gj-user-profile{
-    display:flex;
-    align-items:center;
-    gap:30px;
-}
-
-.gj-user-profile img{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid rgba(255,255,255,0.15);
-    box-shadow:0 20px 50px rgba(0,0,0,0.25);
-}
-
-.gj-user-profile h1{
-    font-size:72px;
-    line-height:0.9;
-    letter-spacing:-4px;
-    font-weight:900;
-    color:var(--white);
-    text-transform:uppercase;
-}
-
-.gj-user-profile p{
-    margin-top:18px;
-    color:rgba(255,255,255,0.75);
-    font-size:16px;
-    max-width:500px;
-    line-height:1.8;
-}
-
-.gj-user-status{
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(12px);
-    padding:18px 24px;
-    border-radius:16px;
-    min-width:220px;
-}
-
-.gj-user-status span{
-    display:block;
-    font-size:11px;
-    letter-spacing:1px;
-    font-weight:900;
-    text-transform:uppercase;
-    color:rgba(255,255,255,0.55);
-    margin-bottom:8px;
-}
-
-.gj-user-status strong{
-    color:var(--white);
-    font-size:22px;
-    font-weight:900;
-}
-
-/* GRID */
-
-.gj-dashboard{
-    display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    gap:25px;
-}
-
-.gj-box{
-    background:var(--white);
-    border-radius:18px;
-    border:1px solid rgba(0,0,0,0.06);
-    overflow:hidden;
-    transition:var(--transition);
-}
-
-.gj-box:hover{
-    transform:translateY(-6px);
-    box-shadow:0 25px 45px rgba(0,0,0,0.06);
-}
-
-.gj-box-top{
-    padding:25px 30px;
-    border-bottom:1px solid rgba(0,0,0,0.06);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.gj-box-top h3{
-    font-size:15px;
-    font-weight:900;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    color:var(--dark);
-}
-
-.gj-box-top i{
-    color:var(--accent);
-    font-size:18px;
-}
-
-.gj-box-content{
-    padding:30px;
-}
-
-.gj-big{
-    font-size:52px;
-    line-height:1;
-    font-weight:900;
-    color:var(--primary);
-    letter-spacing:-3px;
-}
-
-.gj-desc{
-    margin-top:14px;
-    color:#666;
-    line-height:1.7;
-    font-size:15px;
-}
-
-/* LIST */
-
-.gj-list{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
-
-.gj-list-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding-bottom:18px;
-    border-bottom:1px solid rgba(0,0,0,0.06);
-}
-
-.gj-list-item:last-child{
-    padding-bottom:0;
-    border-bottom:none;
-}
-
-.gj-list-item strong{
-    display:block;
-    font-size:16px;
-    color:var(--dark);
-    font-weight:800;
-}
-
-.gj-list-item span{
-    font-size:13px;
-    color:#777;
-    margin-top:5px;
-    display:block;
-}
-
-.gj-tag{
-    background:rgba(0,71,255,0.08);
-    color:var(--primary);
-    padding:8px 12px;
-    border-radius:100px;
-    font-size:10px;
-    font-weight:900;
-    letter-spacing:1px;
-    text-transform:uppercase;
-}
-
-/* FULL */
-
-.gj-wide{
-    grid-column:1 / -1;
-}
-
-.gj-actions{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:18px;
-}
-
-.gj-action{
-    background:var(--dark);
-    color:var(--white);
-    padding:24px;
-    border-radius:14px;
-    text-decoration:none;
-    transition:var(--transition);
-}
-
-.gj-action:hover{
-    background:var(--primary);
-    transform:translateY(-4px);
-}
-
-.gj-action i{
-    font-size:24px;
-    margin-bottom:16px;
-    color:var(--accent);
-}
-
-.gj-action h4{
-    font-size:18px;
-    font-weight:900;
-    margin-bottom:8px;
-}
-
-.gj-action p{
-    font-size:13px;
-    line-height:1.6;
-    opacity:0.75;
-}
-
-/* MOBILE */
-
-@media(max-width:1000px){
-
-    .gj-dashboard{
-        grid-template-columns:1fr;
-    }
-
-    .gj-user-inner{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .gj-user-profile{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .gj-user-profile h1{
-        font-size:52px;
-    }
-
-    .gj-user-hero{
-        padding:60px 35px;
-    }
-
-}
-
-</style>
+<!-- =========================
+     USER PROFILE HERO
+========================= -->
 
 <div class="gj-user-hero">
 
@@ -289,10 +15,12 @@ permalink: /user/
 
         <div class="gj-user-profile">
 
+            <!-- AVATAR -->
             <img
                 id="profile-avatar"
                 src="https://i.pravatar.cc/300?img=12"
                 alt="Avatar Utente">
+
             <div>
 
                 <h1>
@@ -302,16 +30,41 @@ permalink: /user/
 
                 <p>
                     Area personale dell'Ufficio di Gabriel Jones.
-                    Gestione contenuti, archivio digitale, newsroom e progetti web.
+                    Gestione contenuti, archivio digitale,
+                    newsroom e progetti web.
                 </p>
+
+                <!-- =========================
+                     AVATAR EDITOR
+                ========================= -->
+
+                <div class="gj-avatar-editor">
+
+                    <input
+                        type="text"
+                        id="avatar-input"
+                        placeholder="Incolla URL immagine profilo">
+
+                    <button onclick="saveAvatar()">
+
+                        <i class="fas fa-camera"></i>
+
+                        Salva Avatar
+
+                    </button>
+
+                </div>
 
             </div>
 
         </div>
 
+        <!-- STATUS -->
+
         <div class="gj-user-status">
 
             <span>Sessione</span>
+
             <strong>ONLINE</strong>
 
         </div>
@@ -319,203 +72,3 @@ permalink: /user/
     </div>
 
 </div>
-
-<div class="gj-dashboard">
-
-
-
-    <div class="gj-avatar-editor">
-
-    <input
-        type="text"
-        id="avatar-input"
-        placeholder="Incolla URL immagine profilo">
-
-    <button onclick="saveAvatar()">
-        Salva Avatar
-    </button>
-
-</div>
-
-    
-    <div class="gj-box">
-
-        <div class="gj-box-top">
-            <h3>Statistiche</h3>
-            <i class="fas fa-chart-line"></i>
-        </div>
-
-        <div class="gj-box-content">
-
-            <div class="gj-big">12K</div>
-
-            <p class="gj-desc">
-                Visualizzazioni generate dai contenuti pubblicati nell'ultimo mese.
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="gj-box">
-
-        <div class="gj-box-top">
-            <h3>Archivio</h3>
-            <i class="fas fa-folder-open"></i>
-        </div>
-
-        <div class="gj-box-content">
-
-            <div class="gj-big">248</div>
-
-            <p class="gj-desc">
-                File, documenti e contenuti presenti nell'archivio digitale.
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="gj-box">
-
-        <div class="gj-box-top">
-            <h3>Progetti</h3>
-            <i class="fas fa-globe"></i>
-        </div>
-
-        <div class="gj-box-content">
-
-            <div class="gj-big">08</div>
-
-            <p class="gj-desc">
-                Progetti web e grafici attualmente attivi all'interno del network.
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="gj-box gj-wide">
-
-        <div class="gj-box-top">
-            <h3>Attività Recenti</h3>
-            <i class="fas fa-clock"></i>
-        </div>
-
-        <div class="gj-box-content">
-
-            <div class="gj-list">
-
-                <div class="gj-list-item">
-
-                    <div>
-                        <strong>Nuovo articolo pubblicato</strong>
-                        <span>News & Vision aggiornata.</span>
-                    </div>
-
-                    <div class="gj-tag">
-                        2 ore fa
-                    </div>
-
-                </div>
-
-                <div class="gj-list-item">
-
-                    <div>
-                        <strong>Upload contenuti grafici</strong>
-                        <span>Aggiunti nuovi media all'archivio.</span>
-                    </div>
-
-                    <div class="gj-tag">
-                        ieri
-                    </div>
-
-                </div>
-
-                <div class="gj-list-item">
-
-                    <div>
-                        <strong>Sistema sincronizzato</strong>
-                        <span>Configurazione Netlify completata.</span>
-                    </div>
-
-                    <div class="gj-tag">
-                        3 giorni fa
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="gj-box gj-wide">
-
-        <div class="gj-box-top">
-            <h3>Accesso rapido</h3>
-            <i class="fas fa-bolt"></i>
-        </div>
-
-        <div class="gj-box-content">
-
-            <div class="gj-actions">
-
-                <a href="#" class="gj-action">
-
-                    <i class="fas fa-newspaper"></i>
-
-                    <h4>Newsroom</h4>
-
-                    <p>
-                        Gestisci articoli e comunicazioni ufficiali.
-                    </p>
-
-                </a>
-
-                <a href="#" class="gj-action">
-
-                    <i class="fas fa-photo-film"></i>
-
-                    <h4>Media</h4>
-
-                    <p>
-                        Archivio immagini, video e contenuti grafici.
-                    </p>
-
-                </a>
-
-                <a href="#" class="gj-action">
-
-                    <i class="fas fa-server"></i>
-
-                    <h4>Dashboard</h4>
-
-                    <p>
-                        Accesso alle impostazioni del sistema.
-                    </p>
-
-                </a>
-
-                <a href="#" class="gj-action">
-
-                    <i class="fas fa-user-shield"></i>
-
-                    <h4>Profilo</h4>
-
-                    <p>
-                        Modifica dati personali e sicurezza account.
-                    </p>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-</section>
