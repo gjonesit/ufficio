@@ -330,21 +330,41 @@ permalink: /user/
 }
 </style>
 
+
 <script>
 
-const currentUser =
-    netlifyIdentity.currentUser();
-
-
 // ==========================
-// REDIRECT IF NOT LOGGED
+// WAIT NETLIFY INIT
 // ==========================
 
-if (!currentUser) {
+window.addEventListener('DOMContentLoaded', () => {
 
-    window.location.href = "/";
+    netlifyIdentity.on('init', user => {
 
-}
+        // ======================
+        // NOT LOGGED
+        // ======================
+
+        if (!user) {
+
+            window.location.href = "/";
+
+            return;
+
+        }
+
+        // ======================
+        // USER DATA
+        // ======================
+
+        loadDashboard(user);
+
+    });
+
+    // INIT NETLIFY
+    netlifyIdentity.init();
+
+});
 
 
 // ==========================
@@ -352,8 +372,6 @@ if (!currentUser) {
 // ==========================
 
 function loadDashboard(user) {
-
-    if (!user) return;
 
     const name =
         user.user_metadata?.full_name ||
@@ -466,40 +484,30 @@ async function saveAvatar() {
 
 
 // ==========================
-// EVENTS
+// LOGIN EVENT
 // ==========================
 
 netlifyIdentity.on(
-    'init',
-    user => loadDashboard(user)
-);
-
-netlifyIdentity.on(
     'login',
-    user => loadDashboard(user)
-);
+    user => {
 
-netlifyIdentity.on(
-    'logout',
-    () => {
+        loadDashboard(user);
 
-        window.location.href = "/";
+        netlifyIdentity.close();
 
     }
 );
 
 
 // ==========================
-// AUTO INIT
+// LOGOUT EVENT
 // ==========================
 
-window.addEventListener(
-    'DOMContentLoaded',
+netlifyIdentity.on(
+    'logout',
     () => {
 
-        loadDashboard(
-            currentUser
-        );
+        window.location.href = "/";
 
     }
 );
