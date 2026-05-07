@@ -328,22 +328,70 @@ permalink: /user/
     }
 
 }
-</style>
 
+.documents-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.doc-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #f5f7fb;
+    border-radius: 18px;
+    padding: 18px;
+    text-decoration: none;
+    color: var(--dark);
+    transition: var(--transition);
+}
+
+.doc-item:hover {
+    transform: translateX(5px);
+    background: var(--primary);
+    color: white;
+}
+
+.doc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: rgba(0,71,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.doc-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-content strong {
+    font-size: 15px;
+}
+
+.doc-content span {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-top: 4px;
+}
+
+</style>
 
 <script>
 
-// ==========================
-// WAIT NETLIFY INIT
-// ==========================
+// ======================================
+// NETLIFY INIT
+// ======================================
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    netlifyIdentity.on('init', user => {
-
-        // ======================
-        // NOT LOGGED
-        // ======================
+    netlifyIdentity.on('init', async user => {
 
         if (!user) {
 
@@ -353,35 +401,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
         }
 
-        // ======================
-        // USER DATA
-        // ======================
-
-        loadDashboard(user);
+        await loadDashboard(user);
 
     });
 
-    // INIT NETLIFY
     netlifyIdentity.init();
 
 });
 
 
-// ==========================
-// LOAD USER DATA
-// ==========================
+// ======================================
+// LOAD DASHBOARD
+// ======================================
 
-function loadDashboard(user) {
+async function loadDashboard(user) {
 
     const name =
         user.user_metadata?.full_name ||
         user.email.split('@')[0];
 
-    const avatar =
-        localStorage.getItem(
-            'gj_avatar_' + user.id
-        ) ||
+    // ==================================
+    // PERMANENT AVATAR
+    // ==================================
 
+    const avatar =
         user.user_metadata?.avatar_url ||
 
         user.data?.avatar_url ||
@@ -419,12 +462,112 @@ function loadDashboard(user) {
     ).value =
         avatar;
 
+
+    // ==================================
+    // DOCUMENT FEED
+    // ==================================
+
+    loadDocuments();
+
 }
 
 
-// ==========================
+// ======================================
+// DOCUMENT FEED
+// ======================================
+
+async function loadDocuments() {
+
+    const container =
+        document.getElementById(
+            'documents-feed'
+        );
+
+    if (!container) return;
+
+    container.innerHTML =
+        `<p style="opacity:.5;">Caricamento documenti...</p>`;
+
+    try {
+
+        // ===============================
+        // PRENDI FEED JEKYLL
+        // ===============================
+
+        const response =
+            await fetch('/feed.json');
+
+        const posts =
+            await response.json();
+
+        // ===============================
+        // LIMIT
+        // ===============================
+
+        const latest =
+            posts.slice(0, 5);
+
+        // ===============================
+        // RENDER
+        // ===============================
+
+        container.innerHTML =
+            latest.map(post => `
+
+                <a href="${post.url}"
+                   class="doc-item">
+
+                    <div class="doc-icon">
+                        <i class="fas fa-file-lines"></i>
+                    </div>
+
+                    <div class="doc-content">
+
+                        <strong>
+                            ${post.title}
+                        </strong>
+
+                        <span>
+                            ${new Date(
+                                post.date
+                            ).toLocaleDateString('it-IT')}
+                        </span>
+
+                    </div>
+
+                    <i class="fas fa-arrow-right"></i>
+
+                </a>
+
+            `).join('');
+
+    }
+
+    catch(err) {
+
+        console.error(err);
+
+        container.innerHTML = `
+
+            <p style="
+                color: var(--accent);
+                font-weight: 700;
+            ">
+
+                Impossibile caricare il feed.
+
+            </p>
+
+        `;
+
+    }
+
+}
+
+
+// ======================================
 // SAVE AVATAR
-// ==========================
+// ======================================
 
 async function saveAvatar() {
 
@@ -438,7 +581,9 @@ async function saveAvatar() {
 
     if (!url) {
 
-        alert('Inserisci una immagine valida.');
+        alert(
+            'Inserisci una immagine valida.'
+        );
 
         return;
 
@@ -447,7 +592,13 @@ async function saveAvatar() {
     const user =
         netlifyIdentity.currentUser();
 
+    if (!user) return;
+
     try {
+
+        // ==================================
+        // SAVE ON NETLIFY
+        // ==================================
 
         await user.update({
 
@@ -459,16 +610,28 @@ async function saveAvatar() {
 
         });
 
-        localStorage.setItem(
-            'gj_avatar_' + user.id,
-            url
-        );
+        // ==================================
+        // FORCE RELOAD USER
+        // ==================================
 
+        const refreshedUser =
+            netlifyIdentity.currentUser();
+
+        // UPDATE IMAGE
         document.getElementById(
             'profile-avatar'
-        ).src = url;
+        ).src =
+            url;
 
-        alert('Avatar aggiornato.');
+        // UPDATE INPUT
+        document.getElementById(
+            'avatar-input'
+        ).value =
+            url;
+
+        alert(
+            'Avatar salvato permanentemente.'
+        );
 
     }
 
@@ -476,16 +639,18 @@ async function saveAvatar() {
 
         console.error(err);
 
-        alert('Errore durante il salvataggio.');
+        alert(
+            'Errore durante il salvataggio.'
+        );
 
     }
 
 }
 
 
-// ==========================
+// ======================================
 // LOGIN EVENT
-// ==========================
+// ======================================
 
 netlifyIdentity.on(
     'login',
@@ -499,9 +664,9 @@ netlifyIdentity.on(
 );
 
 
-// ==========================
+// ======================================
 // LOGOUT EVENT
-// ==========================
+// ======================================
 
 netlifyIdentity.on(
     'logout',
@@ -513,3 +678,6 @@ netlifyIdentity.on(
 );
 
 </script>
+
+
+
